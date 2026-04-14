@@ -3,9 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprisco</title>
+    <title>Aprisco - Associação de Desenvolvimento Humano e Social</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#F5F3FF',
+                            500: '#8B5CF6',
+                            600: '#7C3AED',
+                            700: '#6D28D9'
+                        },
+                        secondary: {
+                            400: '#FCD34D',
+                            500: '#F59E0B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/custom.css">
 </head>
-<body>
-    
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-primary-700 shadow-lg fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="home.html" class="text-white font-bold text-xl">O Aprisco</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="text-white hover:text-secondary-400 transition">Home</a>
+                    <a href="quemsomos.html" class="text-white hover:text-secondary-400 transition">Quem Somos</a>
+                    <a href="impacto.html" class="text-white hover:text-secondary-400 transition">Impacto</a>
+                    <a href="eixosdeatuacao.html" class="text-white hover:text-secondary-400 transition">Eixos de Atuação</a>
+                    <a href="polocidadania.html" class="text-white hover:text-secondary-400 transition">Polo Cidadania</a>
+                    <a href="historias.html" class="text-white hover:text-secondary-400 transition">Histórias</a>
+                    <a href="financeiro.html" class="text-white hover:text-secondary-400 transition">Financeiro</a>
+                    <a href="transparencia.html" class="text-white hover:text-secondary-400 transition">Transparência</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-secondary-400 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-primary-800">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="home.html" class="block px-3 py-2 text-white hover:text-secondary-400">Home</a>
+                <a href="quemsomos.html" class="block px-3 py-2 text-white hover:text-secondary-400">Quem Somos</a>
+                <a href="impacto.html" class="block px-3 py-2 text-white hover:text-secondary-400">Impacto</a>
+                <a href="eixosdeatuacao.html" class="block px-3 py-2 text-white hover:text-secondary-400">Eixos de Atuação</a>
+                <a href="polocidadania.html" class="block px-3 py-2 text-white hover:text-secondary-400">Polo Cidadania</a>
+                <a href="historias.html" class="block px-3 py-2 text-white hover:text-secondary-400">Histórias</a>
+                <a href="financeiro.html" class="block px-3 py-2 text-white hover:text-secondary-400">Financeiro</a>
+                <a href="transparencia.html" class="block px-3 py-2 text-white hover:text-secondary-400">Transparência</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 pb-20 bg-gradient-to-br from-primary-600 to-primary-700 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center text-white">
+            <!-- Placeholder para imagem hero -->
+            <div class="hero-placeholder bg-gradient-to-r from-secondary-400/20 to-secondary-500/20 rounded-3xl mx-auto mb-8 w-full h-96 md:h-[500px] flex items-center justify-center border-4 border-white/30 shadow-2xl">
+                <div>
+                    <p class="text-2xl md:text-4xl font-bold mb-4">Espaço reservado para imagem Hero</p>
+                    <p class="text-lg opacity-75">(Usar assets/primeirohero.png ou similar)</p>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">Transformando Vidas</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto drop-shadow-md">O Aprisco promove desenvolvimento humano e social nas comunidades de Itaguaí e Mangaratiba.</p>
+            <a href="quemsomos.html" class="bg-secondary-500 hover:bg-secondary-400 text-primary-700 px-8 py-4 rounded-full text-xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">Conheça Nossa Missão</a>
+        </div>
+    </section>
+
+    <!-- Seção Contador Dinâmico de Impacto -->
+    <section id="impacto-stats" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                <div class="group">
+                    <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-600 mb-4" data-target="9000">+</div>
+                    <div class="text-2xl font-semibold text-gray-700 group-hover:text-primary-600 transition">atendimentos por ano</div>
+                </div>
+                <div class="group">
+                    <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-500 mb-4" data-target="150">+</div>
+                    <div class="text-2xl font-semibold text-gray-700 group-hover:text-secondary-400 transition">jovens ativos nos programas</div>
+                </div>
+                <div class="group">
+                    <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-600 mb-4" data-target="107"></div>
+                    <div class="text-2xl font-semibold text-gray-700 group-hover:text-primary-600 transition">pessoas formadas profissionalmente (2023)</div>
+                </div>
+                <div class="group">
+                    <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-500 mb-4" data-target="265"></div>
+                    <div class="text-2xl font-semibold text-gray-700 group-hover:text-secondary-400 transition">cestas básicas distribuídas (2024)</div>
+                </div>
+                <div class="group">
+                    <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-600 mb-4" data-target="90">pts</div>
+                    <div class="text-2xl font-semibold text-gray-700 group-hover:text-primary-600 transition">auditoria Rede Gerando Falcões</div>
+                </div>
+                <div class="group">
+                    <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-700 mb-4" data-target="2">cidades</div>
+                    <div class="text-2xl font-semibold text-gray-700 group-hover:text-primary-600 transition">atendidas: Itaguaí e Mangaratiba</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faixa de Endosso Institucional -->
+    <section class="bg-primary-600 py-12 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <!-- Placeholder para logo Rede Gerando Falcões -->
+                <div class="w-32 h-32 bg-white/20 rounded-2xl flex items-center justify-center mx-auto md:mx-0">
+                    <img src="../assets/falcoes.png" alt="Rede Gerando Falcões" class="w-24 h-24 object-contain">
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4">Aprovados e auditados pela</h3>
+                    <p class="text-xl opacity-90">“Rede Gerando Falcões — referência nacional em gestão de impacto social.”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-secondary-400">O Aprisco</h3>
+                <p class="text-gray-300 mb-6">Associação de Desenvolvimento Humano e Social</p>
+                <div class="flex justify-center md:justify-start space-x-6 text-2xl">
+                    <a href="https://instagram.com/oaprisco.itaguai" class="hover:text-secondary-400 transition">@oaprisco.itaguai</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4 text-secondary-400">Contato</h4>
+                <p class="mb-2">Rua Xavantes, Lt28, Qd75<br>Vila Ibirapitanga, Itaguaí/RJ</p>
+                <p class="mb-2">CNPJ: 45.217.322/0001-25</p>
+                <p class="mb-4">📧 <a href="mailto:adm.oaprisco@outlook.com.br" class="hover:text-secondary-400 transition">adm.oaprisco@outlook.com.br</a></p>
+                <p>📞 (21) 98111-6424</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 O Aprisco. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/navbar.js"></script>
+    <script src="../js/counters.js"></script>
 </body>
 </html>
