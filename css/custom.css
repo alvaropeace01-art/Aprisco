@@ -79,15 +79,24 @@
 .mobile-menu-panel a {
     border-radius: 0.8rem;
     border: 1px solid transparent;
-    transform: translateX(-8px);
+    transform: translateX(-12px);
     opacity: 0;
-    transition: background-color 0.24s ease, border-color 0.24s ease, transform 0.28s ease, color 0.24s ease, opacity 0.28s ease;
+    transition: background-color 0.24s ease, border-color 0.24s ease, transform 0.32s ease, color 0.24s ease, opacity 0.32s ease;
 }
 
 .mobile-menu-panel.is-open a {
     transform: translateX(0);
     opacity: 1;
 }
+
+.mobile-menu-panel.is-open a:nth-child(1) { transition-delay: 0.03s; }
+.mobile-menu-panel.is-open a:nth-child(2) { transition-delay: 0.06s; }
+.mobile-menu-panel.is-open a:nth-child(3) { transition-delay: 0.09s; }
+.mobile-menu-panel.is-open a:nth-child(4) { transition-delay: 0.12s; }
+.mobile-menu-panel.is-open a:nth-child(5) { transition-delay: 0.15s; }
+.mobile-menu-panel.is-open a:nth-child(6) { transition-delay: 0.18s; }
+.mobile-menu-panel.is-open a:nth-child(7) { transition-delay: 0.21s; }
+.mobile-menu-panel.is-open a:nth-child(8) { transition-delay: 0.24s; }
 
 .mobile-menu-panel a:hover,
 .mobile-menu-panel a:focus-visible {
@@ -223,6 +232,10 @@
     background: linear-gradient(to right, transparent, rgba(109, 40, 217, 0.24), transparent);
 }
 
+.section-unified-bg.section-divider::before {
+    display: none;
+}
+
 .section-image-card {
     border-radius: var(--apr-radius-xl);
     overflow: hidden;
@@ -232,15 +245,17 @@
     background: #fff;
 }
 
-/* Stats */
-.stats-section {
-    background:
-        linear-gradient(180deg, #ffffff 0%, #f4f0ff 60%, #f8f8ff 100%);
+/* Unified background for connected Home bands */
+.section-unified-bg {
+    position: relative;
+    background: #fdfdff !important;
+    background-image: none !important;
+    background-attachment: fixed;
 }
 
 .stat-card {
     position: relative;
-    background: linear-gradient(165deg, #ffffff, #faf7ff);
+    background: #ffffff;
     border: 1px solid rgba(109, 40, 217, 0.14);
     border-radius: var(--apr-radius-lg);
     padding: 1.5rem 1.3rem;
@@ -296,23 +311,23 @@
 /* Parallax image band */
 .image-band {
     position: relative;
-    background: #ffffff;
-    border-top: 1px solid rgba(109, 40, 217, 0.12);
-    border-bottom: 1px solid rgba(109, 40, 217, 0.1);
+    background: transparent !important;
+    border-top: 0;
+    border-bottom: 0;
 }
 
 .image-band-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 1);
+    background: rgba(253, 253, 255, 0.86);
 }
 
 /* Endorsement */
 .endorsement-card {
     border-radius: 1.4rem;
-    background: #ffffff;
-    border: 1px solid rgba(109, 40, 217, 0.14);
-    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+    background: #fdfdff;
+    border: 1px solid rgba(109, 40, 217, 0.08);
+    box-shadow: 0 6px 14px rgba(17, 24, 39, 0.04);
     padding: 2.2rem;
     display: flex;
     align-items: center;
@@ -423,6 +438,12 @@
 
     .nav-links a::after {
         display: none;
+    }
+}
+
+@media (max-width: 1023px) {
+    .section-unified-bg {
+        background-attachment: scroll;
     }
 }
 
