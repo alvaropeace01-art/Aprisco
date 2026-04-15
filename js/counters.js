@@ -1,35 +1,42 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const counters = document.querySelectorAll('[data-target]');
-    const speed = 200; // Velocidade da animação
+document.addEventListener('DOMContentLoaded', function () {
+    const statsSection = document.getElementById('impacto-stats');
+    if (!statsSection) return;
+
+    const counters = statsSection.querySelectorAll('[data-target]');
 
     function animateCounter(counter) {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const count = parseInt(counter.textContent.replace(/[^\d]/g, '')) || 0;
-        
-        if (count < target) {
-            counter.textContent = Math.ceil(count + (target - count) / speed);
-            setTimeout(() => animateCounter(counter), 20);
-        } else {
-            counter.textContent = target.toLocaleString() + (counter.getAttribute('data-target').includes('+') ? '+' : '');
+        const target = parseInt(counter.getAttribute('data-target') || '0', 10);
+        const prefix = counter.getAttribute('data-prefix') || '';
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function update(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+            const value = Math.floor(target * eased);
+
+            counter.textContent = `${prefix}${value.toLocaleString('pt-BR')}${suffix}`;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                counter.textContent = `${prefix}${target.toLocaleString('pt-BR')}${suffix}`;
+            }
         }
+
+        requestAnimationFrame(update);
     }
 
-    function handleIntersection(entries) {
-        entries.forEach(entry => {
+    const observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-                const countersInView = entry.target.querySelectorAll('[data-target]');
-                countersInView.forEach(animateCounter);
-                observer.unobserve(entry.target);
+                counters.forEach(animateCounter);
+                obs.unobserve(entry.target);
             }
         });
-    }
+    }, { threshold: 0.3 });
 
-    const observer = new IntersectionObserver(handleIntersection, {
-        threshold: 0.5
-    });
-
-    const statsSection = document.getElementById('impacto-stats');
-    if (statsSection) {
-        observer.observe(statsSection);
-    }
+    observer.observe(statsSection);
 });
