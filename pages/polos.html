@@ -303,20 +303,95 @@
     </section>
 
     <!-- Polo de Inclusão Produtiva -->
-    <section id="inclusao" class="py-24 bg-gray-50 section-divider">
+    <section id="inclusao" class="py-24 bg-gray-50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="section-image-card order-2 lg:order-1 reveal-on-scroll shadow-2xl">
-                    <img src="../assets/impacto2.jpg" alt="Polo de Inclusão Produtiva" class="w-full h-full object-cover">
+            <div class="reveal-on-scroll">
+                <!-- Header da Seção -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                    <div>
+                        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-black text-primary-700">Polo de Inclusão Produtiva</h2>
+                        <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full"></div>
+                    </div>
+                    <div class="inline-flex items-center gap-4 bg-white px-6 py-4 rounded-2xl border border-primary-100 shadow-sm">
+                        <span class="w-3 h-3 rounded-full bg-secondary-500 animate-pulse"></span>
+                        <span class="font-bold text-primary-700 italic">"Capacitação real para geração de renda."</span>
+                    </div>
                 </div>
-                <div class="reveal-on-scroll order-1 lg:order-2">
-                    <h2 class="font-display text-3xl md:text-5xl font-bold text-primary-700 mb-8">Polo de Inclusão Produtiva</h2>
-                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                        Focado na geração de renda e autonomia financeira, este polo oferece cursos profissionalizantes e suporte ao empreendedorismo local. Nosso objetivo é transformar habilidades em oportunidades reais de trabalho e prosperidade.
-                    </p>
-                    <div class="inline-flex items-center gap-4 bg-white px-6 py-5 rounded-2xl border border-gray-100 shadow-sm">
-                        <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
-                        <span class="font-semibold text-primary-700 italic text-lg">"Capacitação que gera autonomia."</span>
+
+                <!-- Conteúdo em Grid -->
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    <!-- Coluna de Texto e Lista -->
+                    <div class="space-y-12">
+                        <div class="space-y-6">
+                            <p class="text-xl text-gray-700 leading-relaxed font-medium">
+                                Formação técnica com saída real para o mercado. Em 2023, 107 pessoas foram formadas. Em 2024, 45 certificados emitidos. 
+                            </p>
+                            <p class="text-lg text-gray-600 leading-relaxed pl-8 border-l-4 border-secondary-400 italic bg-white/50 py-4 pr-4 rounded-r-2xl">
+                                O objetivo é simples: geração de renda como resultado direto do nosso investimento em pessoas.
+                            </p>
+                        </div>
+
+                        <!-- Lista de Cursos -->
+                        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                            <h3 class="font-display text-xl font-black text-primary-700 mb-8 uppercase tracking-widest text-sm flex items-center gap-3">
+                                <i class="fas fa-graduation-cap text-secondary-500"></i>
+                                Cursos e Programas
+                            </h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-2">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </span>
+                                    Programa Jovens Falcões (Socioemocional)
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-2">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </span>
+                                    Massoterapia · Crochê · Macramê
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-2">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </span>
+                                    Agenciamento Marítimo
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-2">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </span>
+                                    Regência e Coreografia de Bandas Estudantis
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-2">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </span>
+                                    Software de Editoração de Partituras
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-2">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </span>
+                                    Operador de Empilhadeira
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-2">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </span>
+                                    Libras · Extensão de Cílios
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Coluna de Imagens Empilhadas -->
+                    <div class="space-y-8">
+                        <div class="reveal-on-scroll shadow-2xl rounded-3xl overflow-hidden hover:scale-[1.02] transition-transform duration-500">
+                            <img src="../assets/inclusao1.png" alt="Inclusão Produtiva 1" class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="reveal-on-scroll shadow-2xl rounded-3xl overflow-hidden hover:scale-[1.02] transition-transform duration-500">
+                            <img src="../assets/inclusao2.png" alt="Inclusão Produtiva 2" class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity">
+                        </div>
                     </div>
                 </div>
             </div>
