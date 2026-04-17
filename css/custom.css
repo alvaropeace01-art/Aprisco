@@ -140,10 +140,17 @@ h4,
     transition: all 0.2s ease;
 }
 
-.mobile-sub-link:hover {
+.mobile-sub-link:hover,
+.mobile-sub-link.active {
     background: #ffffff;
     color: #6D28D9;
     padding-left: 1.75rem;
+}
+
+/* Dropdown active state (Desktop) */
+.dropdown-item.active {
+    background: #F5F3FF !important; /* primary-50 */
+    color: #6D28D9 !important;      /* primary-600 */
 }
 
 .rotate-180 {

@@ -69,6 +69,9 @@
                         <div
                             class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                             <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
+                                <a href="polos.html"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium dropdown-item">Eixos
+                                    de Atuação</a>
                                 <a href="#cidadania"
                                     class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
                                     Cidadania</a>
@@ -152,6 +155,7 @@
                         </button>
                         <div id="mobile-atuacao-submenu"
                             class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
+                            <a href="polos.html" class="mobile-sub-link">Eixos de Atuação</a>
                             <a href="#cidadania" class="mobile-sub-link">Polo Cidadania</a>
                             <a href="#inclusao" class="mobile-sub-link">Polo de Inclusão Produtiva</a>
                             <a href="#educacao" class="mobile-sub-link">Polo de Educação</a>
@@ -182,18 +186,45 @@
         </div>
     </nav>
 
-    <!-- Intro Section -->
-    <section class="pt-32 pb-20 bg-primary-900 relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 opacity-40" aria-hidden="true">
-            <img src="../assets/novahero2.png" alt="" class="w-full h-full object-cover">
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-primary-900/60 to-primary-900" aria-hidden="true"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white">
-            <h1 class="font-display text-4xl md:text-6xl font-black mb-6 reveal-on-load">Nossos Polos de Atuação</h1>
-            <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto reveal-on-load leading-relaxed">
-                Conheça como O Aprisco transforma vidas através de projetos estruturados em cinco eixos fundamentais para o desenvolvimento humano e social.
+    <!-- Hero Section -->
+    <section class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden bg-primary-900">
+        <div class="hero-bg" style="background-image: url('../assets/polosimagem.png');" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10 pt-20">
+            <span
+                class="inline-block py-2 px-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-secondary-400 font-bold tracking-widest uppercase text-sm mb-8 reveal-on-load">
+                Nossos Polos de Atuação
+            </span>
+            <h1
+                class="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8 reveal-on-load tracking-tight">
+                Operamos em cinco frentes integradas de desenvolvimento humano.
+            </h1>
+            <p
+                class="font-sans text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 reveal-on-load leading-relaxed">
+                Cada polo tem métricas próprias, instrutores qualificados e metodologia estruturada.
             </p>
+            <div class="reveal-on-load flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="financeiro.html"
+                    class="w-full sm:w-auto bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-black text-lg py-5 px-10 rounded-2xl transition-all duration-300 shadow-xl shadow-secondary-500/30 transform hover:-translate-y-1">
+                    Quero Investir Nessa Causa
+                </a>
+                <a href="impacto.html"
+                    class="w-full sm:w-auto bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold text-lg py-5 px-10 rounded-2xl transition-all duration-300 border border-white/30 transform hover:-translate-y-1">
+                    Conhecer o Impacto
+                </a>
+            </div>
         </div>
+
+        <!-- Animated scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer opacity-50 hover:opacity-100 transition-opacity"
+            onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7">
+                </path>
+            </svg>
+        </div>
+
+        <div class="hero-bottom-fade" aria-hidden="true"></div>
     </section>
 
     <!-- Polo Cidadania -->
@@ -334,21 +365,23 @@
         document.addEventListener('DOMContentLoaded', function () {
             if (window.gsap) {
                 gsap.registerPlugin(ScrollTrigger);
+
+                // Força aceleração 3D para evitar jitter no scroll
                 gsap.config({ force3D: true });
 
                 // Entrance animations
                 gsap.from('.reveal-on-load', {
-                    y: 30,
+                    y: 40,
                     opacity: 0,
-                    duration: 1,
-                    ease: 'power2.out',
-                    stagger: 0.2
+                    duration: 1.2,
+                    ease: 'expo.out',
+                    stagger: 0.15
                 });
 
                 // Scroll animations
                 gsap.utils.toArray('.reveal-on-scroll').forEach(function (el) {
                     gsap.from(el, {
-                        y: 40,
+                        y: 50,
                         opacity: 0,
                         duration: 1,
                         ease: 'power3.out',
@@ -358,6 +391,18 @@
                             toggleActions: 'play none none none'
                         }
                     });
+                });
+
+                // Parallax for Hero Background
+                gsap.to('.hero-bg', {
+                    yPercent: 15,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: '.hero-section',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: 0.8
+                    }
                 });
             }
         });

@@ -117,20 +117,33 @@ document.addEventListener('DOMContentLoaded', function () {
     // Active link highlighting
     const currentPath = window.location.pathname.split('/').pop() || 'home.html';
     
-    document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(link => {
+    document.querySelectorAll('.nav-item, .mobile-nav-item, .dropdown-item, .mobile-sub-link').forEach(link => {
         const href = link.getAttribute('href');
         const text = link.textContent.trim();
 
-        // Lógica para links normais baseados em href
-        if (href === currentPath || (currentPath === '' && href === 'home.html')) {
-            link.classList.add('active');
-        } 
-        // Lógica especial para 'Atuação' na página polos.html
-        else if (currentPath === 'polos.html' && text.includes('Atuação')) {
-            link.classList.add('active');
+        if (!href) {
+            // Lógica para botões (como 'Atuação' no desktop/mobile)
+            if (currentPath === 'polos.html' && text.includes('Atuação')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+            return;
         }
-        else {
-            link.classList.remove('active');
+
+        // Normalização simplificada para comparação de paths
+        const normalizedHref = href.replace(/^\.\//, '').replace(/^\//, '');
+        const normalizedCurrent = currentPath.replace(/^\//, '');
+
+        if (normalizedHref === normalizedCurrent || (normalizedCurrent === 'home.html' && normalizedHref === '')) {
+            link.classList.add('active');
+        } else {
+            // Caso especial para mantar o pai 'Atuação' ativo via texto se for um link (mobile)
+            if (currentPath === 'polos.html' && text.includes('Atuação')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
         }
     });
 });
