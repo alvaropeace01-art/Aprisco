@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprisco - Associação de Desenvolvimento Humano e Social</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
                     colors: {
                         primary: {
                             50: '#F5F3FF',
@@ -25,64 +35,193 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/custom.css">
 </head>
+
 <body class="bg-white text-gray-900 font-sans antialiased">
     <!-- Navbar -->
-    <nav id="navbar" class="navbar fixed w-full z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-20">
+    <nav id="navbar" class="navbar fixed w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 md:h-24 transition-all duration-500"
+                id="navbar-container">
                 <div class="flex items-center">
-                    <a href="home.html" class="logo-link" aria-label="O Aprisco - Home">
-                        <img src="../assets/ovelhapng.svg" alt="O Aprisco" class="logo-img">
+                    <a href="home.html" class="logo-link group" aria-label="O Aprisco - Home">
+                        <img src="../assets/ovelhapng.svg" alt="O Aprisco"
+                            class="logo-img transition-transform duration-500 group-hover:scale-105">
                     </a>
                 </div>
-                <div class="hidden md:flex items-center nav-links">
-                    <a href="home.html" class="text-white !text-lg hover:text-secondary-400 transition">Home</a>
-                    <a href="quemsomos.html" class="text-white !text-lg hover:text-secondary-400 transition">Quem Somos</a>
-                    <a href="impacto.html" class="text-white !text-lg hover:text-secondary-400 transition">Impacto</a>
-                    <a href="eixosdeatuacao.html" class="text-white !text-lg hover:text-secondary-400 transition">Eixos de Atuação</a>
-                    <a href="polocidadania.html" class="text-white !text-lg hover:text-secondary-400 transition">Polo Cidadania</a>
-                    <a href="historias.html" class="text-white !text-lg hover:text-secondary-400 transition">Histórias</a>
-                    <a href="financeiro.html" class="text-white !text-lg hover:text-secondary-400 transition">Financeiro</a>
-                    <a href="transparencia.html" class="text-white !text-lg hover:text-secondary-400 transition">Transparência</a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-1 nav-links">
+                    <a href="home.html" class="nav-item active">Home</a>
+                    <a href="quemsomos.html" class="nav-item">Quem Somos</a>
+                    <a href="impacto.html" class="nav-item">Impacto</a>
+                    <div class="relative group">
+                        <button class="nav-item flex items-center gap-1">
+                            Atuação
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
+                                <a href="polos.html#cidadania"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    Cidadania</a>
+                                <a href="polos.html#inclusao"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Inclusão Produtiva</a>
+                                <a href="polos.html#educacao"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Educação</a>
+                                <a href="polos.html#esporte"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Esporte</a>
+                                <a href="polos.html#cultura"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Cultura</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="historias.html" class="nav-item">Histórias</a>
+                    <a href="financeiro.html" class="nav-item">Financeiro</a>
+                    <a href="transparencia.html" class="nav-item">Transparência</a>
                 </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-white hover:text-secondary-400 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
+
+                <!-- Action Button Desktop -->
+                <div class="hidden lg:block">
+                    <a href="financeiro.html"
+                        class="bg-secondary-500 hover:bg-secondary-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg shadow-secondary-500/20 hover:shadow-secondary-500/40 transform hover:-translate-y-1">
+                        Doar Agora
+                    </a>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="relative z-50 p-2 text-white focus:outline-none group">
+                        <div class="w-6 h-5 relative flex flex-col justify-between">
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full"
+                                id="menu-line-1"></span>
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full"
+                                id="menu-line-2"></span>
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full"
+                                id="menu-line-3"></span>
+                        </div>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden mobile-menu-panel">
-            <div class="px-3 pt-3 pb-4 space-y-1">
-                <a href="home.html" class="block px-3 py-2 text-white hover:text-secondary-400">Home</a>
-                <a href="quemsomos.html" class="block px-3 py-2 text-white hover:text-secondary-400">Quem Somos</a>
-                <a href="impacto.html" class="block px-3 py-2 text-white hover:text-secondary-400">Impacto</a>
-                <a href="eixosdeatuacao.html" class="block px-3 py-2 text-white hover:text-secondary-400">Eixos de Atuação</a>
-                <a href="polocidadania.html" class="block px-3 py-2 text-white hover:text-secondary-400">Polo Cidadania</a>
-                <a href="historias.html" class="block px-3 py-2 text-white hover:text-secondary-400">Histórias</a>
-                <a href="financeiro.html" class="block px-3 py-2 text-white hover:text-secondary-400">Financeiro</a>
-                <a href="transparencia.html" class="block px-3 py-2 text-white hover:text-secondary-400">Transparência</a>
+
+        <!-- Mobile Menu Drawer Overlay -->
+        <div id="mobile-menu-overlay"
+            class="fixed inset-0 bg-primary-900/40 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-500">
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu"
+            class="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-50 flex flex-col shadow-2xl opacity-100">
+            <div class="p-8 flex-1 overflow-y-auto">
+                <div class="flex items-center justify-between mb-10">
+                    <img src="../assets/ovelhapng.svg" alt="O Aprisco" class="h-10 w-auto brightness-0">
+                    <button id="close-mobile-menu" class="p-2 text-gray-500 hover:text-primary-600 transition-colors"
+                        aria-label="Fechar menu">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col space-y-4">
+                    <a href="home.html" class="mobile-nav-item">Home</a>
+                    <a href="quemsomos.html" class="mobile-nav-item">Quem Somos</a>
+                    <a href="impacto.html" class="mobile-nav-item">Impacto</a>
+                    <!-- Mobile Atuação Accordion -->
+                    <div class="mobile-submenu-container">
+                        <button id="mobile-atuacao-btn"
+                            class="mobile-nav-item w-full flex items-center justify-between group">
+                            Atuação
+                            <svg class="w-5 h-5 transition-transform duration-300 pointer-events-none"
+                                id="mobile-atuacao-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobile-atuacao-submenu"
+                            class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
+                            <a href="polos.html#cidadania" class="mobile-sub-link">Polo Cidadania</a>
+                            <a href="polos.html#inclusao" class="mobile-sub-link">Polo de Inclusão Produtiva</a>
+                            <a href="polos.html#educacao" class="mobile-sub-link">Polo de Educação</a>
+                            <a href="polos.html#esporte" class="mobile-sub-link">Polo de Esporte</a>
+                            <a href="polos.html#cultura" class="mobile-sub-link">Polo de Cultura</a>
+                        </div>
+                    </div>
+                    <a href="historias.html" class="mobile-nav-item">Histórias</a>
+                    <a href="financeiro.html" class="mobile-nav-item">Financeiro</a>
+                    <a href="transparencia.html" class="mobile-nav-item">Transparência</a>
+                </nav>
+                <div class="mt-10 pt-10 border-t border-gray-100">
+                    <a href="financeiro.html"
+                        class="w-full block bg-primary-600 text-white text-center font-bold py-4 rounded-2xl shadow-lg shadow-primary-600/20">
+                        Quero Contribuir
+                    </a>
+                </div>
+            </div>
+            <div class="p-8 bg-gray-50">
+                <p class="text-sm text-gray-500 mb-2 font-medium">Siga-nos</p>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com/oaprisco.itaguai"
+                        class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary-600 shadow-sm hover:bg-primary-600 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section parallax-section min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden bg-primary-900">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-overlay" aria-hidden="true"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
-            <h2 class="hero-title px-30 px-20 reveal-on-load">Aprisco</h2>
-            <h1 class="hero-title reveal-on-load">Em Itaguaí, cada jovem que transforma sua vida transforma sua comunidade.</h1>
-            <p class="hero-subtitle reveal-on-load">Desde 2014, O Aprisco converte vulnerabilidade em potencial — com método, métricas e transparência. Mais de 9.000 atendimentos por ano. 90 pontos na auditoria da Rede Gerando Falcões.</p>
-            <div class="reveal-on-load hero-cta-group">
-                <a href="financeiro.html" class="cta-btn">Quero Investir Nessa Causa</a>
-                <a href="impacto.html" class="cta-btn cta-btn-secondary">Conhecer o Impacto</a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10 pt-20">
+            <span
+                class="inline-block py-2 px-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-secondary-400 font-bold tracking-widest uppercase text-sm mb-8 reveal-on-load">
+                Impacto Social Real em Itaguaí
+            </span>
+            <h1
+                class="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8 reveal-on-load tracking-tight">
+                Em Itaguaí, cada jovem que <span class="text-secondary-400">transforma sua vida</span> transforma sua
+                comunidade.
+            </h1>
+            <p
+                class="font-sans text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 reveal-on-load leading-relaxed">
+                Desde 2014, O Aprisco converte vulnerabilidade em potencial — com método, métricas e transparência. Mais
+                de 9.000 atendimentos por ano. 90 pontos na auditoria da Rede Gerando Falcões.
+            </p>
+            <div class="reveal-on-load flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="financeiro.html"
+                    class="w-full sm:w-auto bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-black text-lg py-5 px-10 rounded-2xl transition-all duration-300 shadow-xl shadow-secondary-500/30 transform hover:-translate-y-1">
+                    Quero Investir Nessa Causa
+                </a>
+                <a href="impacto.html"
+                    class="w-full sm:w-auto bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold text-lg py-5 px-10 rounded-2xl transition-all duration-300 border border-white/30 transform hover:-translate-y-1">
+                    Conhecer o Impacto
+                </a>
             </div>
         </div>
+
+        <!-- Animated scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer opacity-50 hover:opacity-100 transition-opacity"
+            onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7">
+                </path>
+            </svg>
+        </div>
+
         <div class="hero-bottom-fade" aria-hidden="true"></div>
     </section>
 
@@ -96,8 +235,10 @@
             </div>
             <div class="space-y-6 reveal-on-scroll">
                 <h2 class="text-3xl md:text-4xl font-bold text-primary-700">Presença ativa na comunidade</h2>
-                <p class="text-lg text-gray-700 leading-relaxed">Atuamos com foco em educação, cidadania e desenvolvimento social, conectando pessoas, oportunidades e impacto real no território.</p>
-                <div class="inline-flex items-center gap-3 bg-white shadow-lg rounded-2xl px-5 py-4 border border-primary-100">
+                <p class="text-lg text-gray-700 leading-relaxed">Atuamos com foco em educação, cidadania e
+                    desenvolvimento social, conectando pessoas, oportunidades e impacto real no território.</p>
+                <div
+                    class="inline-flex items-center gap-3 bg-white shadow-lg rounded-2xl px-5 py-4 border border-primary-100">
                     <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
                     <span class="font-semibold text-primary-700">Atendimento humanizado e resultados mensuráveis</span>
                 </div>
@@ -115,42 +256,66 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <article class="stat-card reveal-on-scroll">
                     <div class="stat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.5l6.75-6.75L14.25 11.25 21 4.5M21 4.5v6.75m0-6.75h-6.75" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 13.5l6.75-6.75L14.25 11.25 21 4.5M21 4.5v6.75m0-6.75h-6.75" />
+                        </svg>
                     </div>
                     <div class="stat-number" data-target="9000" data-prefix="+" data-suffix="">0</div>
                     <p class="stat-label">atendimentos por ano</p>
                 </article>
                 <article class="stat-card reveal-on-scroll">
                     <div class="stat-icon yellow">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.742-.479 3 3 0 0 0-4.682-2.72m.94 3.198v.001c-.046.124-.09.249-.134.375m-2.603-.64a9.1 9.1 0 0 1-4.118 0m4.118 0a9.09 9.09 0 0 0 1.082-.145m-5.2.145a9.09 9.09 0 0 1-1.082-.145m0 0a9.094 9.094 0 0 1-3.742-.479 3 3 0 0 1 4.682-2.72m-.94 3.198-.001.001c.046.124.09.249.134.375m0 0a8.965 8.965 0 0 0 5.64 0m-5.64 0a8.966 8.966 0 0 1 0-5.64m5.64 5.64a8.966 8.966 0 0 0 0-5.64m0 0a8.965 8.965 0 0 0-5.64 0m5.64 0A8.965 8.965 0 0 1 12 3c-2.173 0-4.157.77-5.64 2.05" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 18.72a9.094 9.094 0 0 0 3.742-.479 3 3 0 0 0-4.682-2.72m.94 3.198v.001c-.046.124-.09.249-.134.375m-2.603-.64a9.1 9.1 0 0 1-4.118 0m4.118 0a9.09 9.09 0 0 0 1.082-.145m-5.2.145a9.09 9.09 0 0 1-1.082-.145m0 0a9.094 9.094 0 0 1-3.742-.479 3 3 0 0 1 4.682-2.72m-.94 3.198-.001.001c.046.124.09.249.134.375m0 0a8.965 8.965 0 0 0 5.64 0m-5.64 0a8.966 8.966 0 0 1 0-5.64m5.64 5.64a8.966 8.966 0 0 0 0-5.64m0 0a8.965 8.965 0 0 0-5.64 0m5.64 0A8.965 8.965 0 0 1 12 3c-2.173 0-4.157.77-5.64 2.05" />
+                        </svg>
                     </div>
                     <div class="stat-number" data-target="150" data-prefix="+" data-suffix="">0</div>
                     <p class="stat-label">jovens ativos nos programas</p>
                 </article>
                 <article class="stat-card reveal-on-scroll">
                     <div class="stat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7.5 15l3-3 2.25 2.25L16.5 9" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 3v18h18M7.5 15l3-3 2.25 2.25L16.5 9" />
+                        </svg>
                     </div>
                     <div class="stat-number" data-target="107" data-prefix="" data-suffix="">0</div>
                     <p class="stat-label">pessoas formadas profissionalmente (2023)</p>
                 </article>
                 <article class="stat-card reveal-on-scroll">
                     <div class="stat-icon yellow">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12h6m-6 4h6M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />
+                        </svg>
                     </div>
                     <div class="stat-number" data-target="265" data-prefix="" data-suffix="">0</div>
                     <p class="stat-label">cestas básicas distribuídas (2024)</p>
                 </article>
                 <article class="stat-card reveal-on-scroll">
                     <div class="stat-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9A2.25 2.25 0 0 1 5.25 16.5v-9A2.25 2.25 0 0 1 7.5 5.25h9A2.25 2.25 0 0 1 18.75 7.5v9a2.25 2.25 0 0 1-2.25 2.25ZM9 9h6v6H9V9Z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.5 18.75h-9A2.25 2.25 0 0 1 5.25 16.5v-9A2.25 2.25 0 0 1 7.5 5.25h9A2.25 2.25 0 0 1 18.75 7.5v9a2.25 2.25 0 0 1-2.25 2.25ZM9 9h6v6H9V9Z" />
+                        </svg>
                     </div>
                     <div class="stat-number" data-target="90" data-prefix="" data-suffix=" pts">0</div>
                     <p class="stat-label">auditoria Rede Gerando Falcões</p>
                 </article>
                 <article class="stat-card reveal-on-scroll">
                     <div class="stat-icon yellow">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25c3.54 0 6.75 1.61 8.85 4.2a10.46 10.46 0 0 1 0 11.1A11.21 11.21 0 0 1 12 21.75a11.21 11.21 0 0 1-8.85-4.2 10.46 10.46 0 0 1 0-11.1A11.21 11.21 0 0 1 12 2.25Zm0 0v19.5" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 2.25c3.54 0 6.75 1.61 8.85 4.2a10.46 10.46 0 0 1 0 11.1A11.21 11.21 0 0 1 12 21.75a11.21 11.21 0 0 1-8.85-4.2 10.46 10.46 0 0 1 0-11.1A11.21 11.21 0 0 1 12 2.25Zm0 0v19.5" />
+                        </svg>
                     </div>
                     <div class="stat-number" data-target="2" data-prefix="" data-suffix=" cidades">0</div>
                     <p class="stat-label">atendidas: Itaguaí e Mangaratiba</p>
@@ -164,7 +329,8 @@
         <div class="image-band-overlay"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center text-white relative z-10 reveal-on-scroll">
             <h3 class="text-3xl md:text-4xl font-bold mb-4">Compromisso com excelência e transparência</h3>
-            <p class="text-lg md:text-xl text-white/90">Cada projeto é conduzido com responsabilidade, gestão e foco em transformação duradoura.</p>
+            <p class="text-lg md:text-xl text-white/90">Cada projeto é conduzido com responsabilidade, gestão e foco em
+                transformação duradoura.</p>
         </div>
     </section>
 
@@ -177,7 +343,8 @@
                 </div>
                 <div>
                     <h3 class="text-2xl md:text-3xl font-bold mb-3 text-primary-700">Endosso institucional</h3>
-                    <p class="text-lg md:text-xl text-gray-700">Aprovados e auditados pela Rede Gerando Falcões — referência nacional em gestão de impacto social.</p>
+                    <p class="text-lg md:text-xl text-gray-700">Aprovados e auditados pela Rede Gerando Falcões —
+                        referência nacional em gestão de impacto social.</p>
                 </div>
             </div>
         </div>
@@ -190,14 +357,16 @@
                 <h3 class="text-2xl font-bold mb-4 text-secondary-400">O Aprisco</h3>
                 <p class="text-gray-300 mb-6">Associação de Desenvolvimento Humano e Social</p>
                 <div class="flex justify-center md:justify-start space-x-6 text-2xl">
-                    <a href="https://instagram.com/oaprisco.itaguai" class="hover:text-secondary-400 transition">@oaprisco.itaguai</a>
+                    <a href="https://instagram.com/oaprisco.itaguai"
+                        class="hover:text-secondary-400 transition">@oaprisco.itaguai</a>
                 </div>
             </div>
             <div>
                 <h4 class="text-xl font-semibold mb-4 text-secondary-400">Contato</h4>
                 <p class="mb-2">Rua Xavantes, Lt28, Qd75<br>Vila Ibirapitanga, Itaguaí/RJ</p>
                 <p class="mb-2">CNPJ: 45.217.322/0001-25</p>
-                <p class="mb-4">📧 <a href="mailto:adm.oaprisco@outlook.com.br" class="hover:text-secondary-400 transition">adm.oaprisco@outlook.com.br</a></p>
+                <p class="mb-4">📧 <a href="mailto:adm.oaprisco@outlook.com.br"
+                        class="hover:text-secondary-400 transition">adm.oaprisco@outlook.com.br</a></p>
                 <p>📞 (21) 98111-6424</p>
             </div>
         </div>
@@ -216,66 +385,74 @@
             if (window.gsap) {
                 gsap.registerPlugin(ScrollTrigger);
 
+                // Força aceleração 3D para evitar jitter no scroll
+                gsap.config({ force3D: true });
+
+                // Entrance animations
                 gsap.from('.reveal-on-load', {
-                    y: 36,
+                    y: 40,
                     opacity: 0,
-                    duration: 1,
-                    ease: 'power3.out',
-                    stagger: 0.12
+                    duration: 1.2,
+                    ease: 'expo.out',
+                    stagger: 0.15
                 });
 
+                // Scroll animations
                 gsap.utils.toArray('.reveal-on-scroll').forEach(function (el) {
                     gsap.from(el, {
-                        y: 34,
+                        y: 50,
                         opacity: 0,
-                        duration: 0.9,
-                        ease: 'power2.out',
+                        duration: 1,
+                        ease: 'power3.out',
                         scrollTrigger: {
                             trigger: el,
-                            start: 'top 82%',
+                            start: 'top 85%',
                             toggleActions: 'play none none none'
                         }
                     });
                 });
 
+                // Parallax for Hero Background
                 gsap.to('.hero-bg', {
-                    yPercent: 10,
+                    yPercent: 15,
                     ease: 'none',
                     scrollTrigger: {
                         trigger: '.hero-section',
                         start: 'top top',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: 0.8
                     }
                 });
 
+                // Image group parallax - refined
                 gsap.utils.toArray('.parallax-image-card img').forEach(function (img) {
                     gsap.fromTo(img, {
-                        yPercent: -8
+                        yPercent: -10
                     }, {
-                        yPercent: 8,
+                        yPercent: 10,
                         ease: 'none',
                         scrollTrigger: {
                             trigger: img,
                             start: 'top bottom',
                             end: 'bottom top',
-                            scrub: true
+                            scrub: 0.8
                         }
                     });
                 });
             }
+
+            // Simple Carrossel Logic (Optional cleanup)
+            const images = document.querySelectorAll('.carrossel-img');
+            let index = 0;
+            if (images.length > 0) {
+                setInterval(() => {
+                    images[index].classList.remove('active');
+                    index = (index + 1) % images.length;
+                    images[index].classList.add('active');
+                }, 4000);
+            }
         });
-        const images = document.querySelectorAll('.carrossel-img');
-        let index = 0;
-
-        setInterval(() => {
-            images[index].classList.remove('active');
-
-            index = (index + 1) % images.length;
-
-            images[index].classList.add('active');
-        }, 3000); // troca a cada 3 segundos
-        console.log("carrossel bebe");
     </script>
 </body>
+
 </html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Polos - O Aprisco</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#F5F3FF',
+                            500: '#8B5CF6',
+                            600: '#7C3AED',
+                            700: '#6D28D9'
+                        },
+                        secondary: {
+                            400: '#FCD34D',
+                            500: '#F59E0B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar fixed w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 md:h-24 transition-all duration-500"
+                id="navbar-container">
+                <div class="flex items-center">
+                    <a href="home.html" class="logo-link group" aria-label="O Aprisco - Home">
+                        <img src="../assets/ovelhapng.svg" alt="O Aprisco"
+                            class="logo-img transition-transform duration-500 group-hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-1 nav-links">
+                    <a href="home.html" class="nav-item">Home</a>
+                    <a href="quemsomos.html" class="nav-item">Quem Somos</a>
+                    <a href="impacto.html" class="nav-item">Impacto</a>
+                    <div class="relative group">
+                        <button class="nav-item flex items-center gap-1">
+                            Atuação
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
+                                <a href="#cidadania"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    Cidadania</a>
+                                <a href="#inclusao"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Inclusão Produtiva</a>
+                                <a href="#educacao"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Educação</a>
+                                <a href="#esporte"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Esporte</a>
+                                <a href="#cultura"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Cultura</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="historias.html" class="nav-item">Histórias</a>
+                    <a href="financeiro.html" class="nav-item">Financeiro</a>
+                    <a href="transparencia.html" class="nav-item">Transparência</a>
+                </div>
+
+                <!-- Action Button Desktop -->
+                <div class="hidden lg:block">
+                    <a href="financeiro.html"
+                        class="bg-secondary-500 hover:bg-secondary-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg shadow-secondary-500/20 hover:shadow-secondary-500/40 transform hover:-translate-y-1">
+                        Doar Agora
+                    </a>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="relative z-50 p-2 text-white focus:outline-none group">
+                        <div class="w-6 h-5 relative flex flex-col justify-between">
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full"
+                                id="menu-line-1"></span>
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full"
+                                id="menu-line-2"></span>
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full"
+                                id="menu-line-3"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer Overlay -->
+        <div id="mobile-menu-overlay"
+            class="fixed inset-0 bg-primary-900/40 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-500">
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu"
+            class="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-50 flex flex-col shadow-2xl opacity-100">
+            <div class="p-8 flex-1 overflow-y-auto">
+                <div class="flex items-center justify-between mb-10">
+                    <img src="../assets/ovelhapng.svg" alt="O Aprisco" class="h-10 w-auto brightness-0">
+                    <button id="close-mobile-menu" class="p-2 text-gray-500 hover:text-primary-600 transition-colors"
+                        aria-label="Fechar menu">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col space-y-4">
+                    <a href="home.html" class="mobile-nav-item">Home</a>
+                    <a href="quemsomos.html" class="mobile-nav-item">Quem Somos</a>
+                    <a href="impacto.html" class="mobile-nav-item">Impacto</a>
+                    <!-- Mobile Atuação Accordion -->
+                    <div class="mobile-submenu-container">
+                        <button id="mobile-atuacao-btn"
+                            class="mobile-nav-item w-full flex items-center justify-between group">
+                            Atuação
+                            <svg class="w-5 h-5 transition-transform duration-300 pointer-events-none"
+                                id="mobile-atuacao-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobile-atuacao-submenu"
+                            class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
+                            <a href="#cidadania" class="mobile-sub-link">Polo Cidadania</a>
+                            <a href="#inclusao" class="mobile-sub-link">Polo de Inclusão Produtiva</a>
+                            <a href="#educacao" class="mobile-sub-link">Polo de Educação</a>
+                            <a href="#esporte" class="mobile-sub-link">Polo de Esporte</a>
+                            <a href="#cultura" class="mobile-sub-link">Polo de Cultura</a>
+                        </div>
+                    </div>
+                    <a href="historias.html" class="mobile-nav-item">Histórias</a>
+                    <a href="financeiro.html" class="mobile-nav-item">Financeiro</a>
+                    <a href="transparencia.html" class="mobile-nav-item">Transparência</a>
+                </nav>
+                <div class="mt-10 pt-10 border-t border-gray-100">
+                    <a href="financeiro.html"
+                        class="w-full block bg-primary-600 text-white text-center font-bold py-4 rounded-2xl shadow-lg shadow-primary-600/20">
+                        Quero Contribuir
+                    </a>
+                </div>
+            </div>
+            <div class="p-8 bg-gray-50">
+                <p class="text-sm text-gray-500 mb-2 font-medium">Siga-nos</p>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com/oaprisco.itaguai"
+                        class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary-600 shadow-sm hover:bg-primary-600 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Intro Section -->
+    <section class="pt-32 pb-20 bg-primary-900 relative min-h-[40vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 opacity-40" aria-hidden="true">
+            <img src="../assets/novahero2.png" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-primary-900/60 to-primary-900" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white">
+            <h1 class="font-display text-4xl md:text-6xl font-black mb-6 reveal-on-load">Nossos Polos de Atuação</h1>
+            <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto reveal-on-load leading-relaxed">
+                Conheça como O Aprisco transforma vidas através de projetos estruturados em cinco eixos fundamentais para o desenvolvimento humano e social.
+            </p>
+        </div>
+    </section>
+
+    <!-- Polo Cidadania -->
+    <section id="cidadania" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-primary-700 mb-8">Polo Cidadania</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        O Polo Cidadania é o pilar central da nossa atuação, focado em garantir direitos fundamentais e promover a dignidade humana. Através de orientação jurídica, auxílio documental e acolhimento social, trabalhamos para que cada indivíduo seja reconhecido e fortalecido em sua comunidade.
+                    </p>
+                    <div class="inline-flex items-center gap-4 bg-primary-50 px-6 py-5 rounded-2xl border border-primary-100">
+                        <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
+                        <span class="font-semibold text-primary-700 italic text-lg">"Garantindo direitos, promovendo dignidade."</span>
+                    </div>
+                </div>
+                <div class="section-image-card reveal-on-scroll shadow-2xl">
+                    <img src="../assets/comunidade.jpg" alt="Polo Cidadania" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Polo de Inclusão Produtiva -->
+    <section id="inclusao" class="py-24 bg-gray-50 section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="section-image-card order-2 lg:order-1 reveal-on-scroll shadow-2xl">
+                    <img src="../assets/impacto2.jpg" alt="Polo de Inclusão Produtiva" class="w-full h-full object-cover">
+                </div>
+                <div class="reveal-on-scroll order-1 lg:order-2">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-primary-700 mb-8">Polo de Inclusão Produtiva</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        Focado na geração de renda e autonomia financeira, este polo oferece cursos profissionalizantes e suporte ao empreendedorismo local. Nosso objetivo é transformar habilidades em oportunidades reais de trabalho e prosperidade.
+                    </p>
+                    <div class="inline-flex items-center gap-4 bg-white px-6 py-5 rounded-2xl border border-gray-100 shadow-sm">
+                        <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
+                        <span class="font-semibold text-primary-700 italic text-lg">"Capacitação que gera autonomia."</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Polo de Educação -->
+    <section id="educacao" class="py-24 bg-white section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-primary-700 mb-8">Polo de Educação</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        Cremos na educação como a chave mestra da transformação. Oferecemos reforço escolar, atividades pedagógicas e incentivo à leitura, preparando nossas crianças e jovens para um futuro de escolhas conscientes e brilhantes.
+                    </p>
+                    <div class="inline-flex items-center gap-4 bg-primary-50 px-6 py-5 rounded-2xl border border-primary-100">
+                        <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
+                        <span class="font-semibold text-primary-700 italic text-lg">"Conhecimento para transformar realidades."</span>
+                    </div>
+                </div>
+                <div class="section-image-card reveal-on-scroll shadow-2xl">
+                    <img src="../assets/impacto3.jpg" alt="Polo de Educação" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Polo de Esporte -->
+    <section id="esporte" class="py-24 bg-gray-50 section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="section-image-card order-2 lg:order-1 reveal-on-scroll shadow-2xl">
+                    <img src="../assets/comunidade2.jpg" alt="Polo de Esporte" class="w-full h-full object-cover">
+                </div>
+                <div class="reveal-on-scroll order-1 lg:order-2">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-primary-700 mb-8">Polo de Esporte</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        O esporte é nossa ferramenta de disciplina, saúde e trabalho em equipe. Com escolinhas e atividades esportivas variadas, promovemos o bem-estar físico e a inclusão social através do movimento.
+                    </p>
+                    <div class="inline-flex items-center gap-4 bg-white px-6 py-5 rounded-2xl border border-gray-100 shadow-sm">
+                        <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
+                        <span class="font-semibold text-primary-700 italic text-lg">"Valores em campo para a vida."</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Polo de Cultura -->
+    <section id="cultura" class="py-24 bg-white section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-primary-700 mb-8">Polo de Cultura</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        Celebrar a identidade e a expressão artística é o coração deste polo. Oferecemos oficinas de arte, música e teatro, criando um espaço onde o potencial criativo de cada jovem pode florescer plenamente.
+                    </p>
+                    <div class="inline-flex items-center gap-4 bg-primary-50 px-6 py-5 rounded-2xl border border-primary-100">
+                        <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
+                        <span class="font-semibold text-primary-700 italic text-lg">"Arte que inspira e liberta."</span>
+                    </div>
+                </div>
+                <div class="section-image-card reveal-on-scroll shadow-2xl">
+                    <img src="../assets/impacto1.jpg" alt="Polo de Cultura" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-secondary-400">O Aprisco</h3>
+                <p class="text-gray-300 mb-6">Associação de Desenvolvimento Humano e Social</p>
+                <div class="flex justify-center md:justify-start space-x-6 text-2xl">
+                    <a href="https://instagram.com/oaprisco.itaguai"
+                        class="hover:text-secondary-400 transition">@oaprisco.itaguai</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4 text-secondary-400">Contato</h4>
+                <p class="mb-2">Rua Xavantes, Lt28, Qd75<br>Vila Ibirapitanga, Itaguaí/RJ</p>
+                <p class="mb-2">CNPJ: 45.217.322/0001-25</p>
+                <p class="mb-4">📧 <a href="mailto:adm.oaprisco@outlook.com.br"
+                        class="hover:text-secondary-400 transition">adm.oaprisco@outlook.com.br</a></p>
+                <p>📞 (21) 98111-6424</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 O Aprisco. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.gsap) {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.config({ force3D: true });
+
+                // Entrance animations
+                gsap.from('.reveal-on-load', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.out',
+                    stagger: 0.2
+                });
+
+                // Scroll animations
+                gsap.utils.toArray('.reveal-on-scroll').forEach(function (el) {
+                    gsap.from(el, {
+                        y: 40,
+                        opacity: 0,
+                        duration: 1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none'
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
