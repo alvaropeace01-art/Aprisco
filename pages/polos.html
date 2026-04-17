@@ -203,16 +203,7 @@
                 class="font-sans text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 reveal-on-load leading-relaxed">
                 Cada polo tem métricas próprias, instrutores qualificados e metodologia estruturada.
             </p>
-            <div class="reveal-on-load flex flex-col sm:flex-row items-center justify-center gap-5">
-                <a href="financeiro.html"
-                    class="w-full sm:w-auto bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-black text-lg py-5 px-10 rounded-2xl transition-all duration-300 shadow-xl shadow-secondary-500/30 transform hover:-translate-y-1">
-                    Quero Investir Nessa Causa
-                </a>
-                <a href="impacto.html"
-                    class="w-full sm:w-auto bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold text-lg py-5 px-10 rounded-2xl transition-all duration-300 border border-white/30 transform hover:-translate-y-1">
-                    Conhecer o Impacto
-                </a>
-            </div>
+
         </div>
 
         <!-- Animated scroll indicator -->
@@ -228,22 +219,85 @@
     </section>
 
     <!-- Polo Cidadania -->
-    <section id="cidadania" class="py-24 bg-white">
+    <section id="cidadania" class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="reveal-on-scroll">
-                    <h2 class="font-display text-3xl md:text-5xl font-bold text-primary-700 mb-8">Polo Cidadania</h2>
-                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                        O Polo Cidadania é o pilar central da nossa atuação, focado em garantir direitos fundamentais e promover a dignidade humana. Através de orientação jurídica, auxílio documental e acolhimento social, trabalhamos para que cada indivíduo seja reconhecido e fortalecido em sua comunidade.
-                    </p>
-                    <div class="inline-flex items-center gap-4 bg-primary-50 px-6 py-5 rounded-2xl border border-primary-100">
-                        <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
-                        <span class="font-semibold text-primary-700 italic text-lg">"Garantindo direitos, promovendo dignidade."</span>
+            <div class="reveal-on-scroll mb-16">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                    <div>
+                        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-black text-primary-700">Polo Cidadania</h2>
+                        <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full"></div>
+                    </div>
+                    <div class="inline-flex items-center gap-4 bg-primary-50 px-6 py-4 rounded-2xl border border-primary-100">
+                        <span class="w-3 h-3 rounded-full bg-secondary-500 animate-pulse"></span>
+                        <span class="font-bold text-primary-700 italic">"Garantindo direitos, promovendo dignidade."</span>
                     </div>
                 </div>
-                <div class="section-image-card reveal-on-scroll shadow-2xl">
-                    <img src="../assets/comunidade.jpg" alt="Polo Cidadania" class="w-full h-full object-cover">
+
+                <div class="grid lg:grid-cols-3 gap-12 items-start">
+                    <div class="lg:col-span-2 space-y-8">
+                        <p class="text-xl text-gray-700 leading-relaxed font-medium">
+                            O Polo Cidadania é o pilar central da nossa atuação, focado em garantir direitos fundamentais e promover a dignidade humana. Através de orientação jurídica, auxílio documental e acolhimento social, trabalhamos para que cada indivíduo seja reconhecido e fortalecido em sua comunidade.
+                        </p>
+                        <p class="text-lg text-gray-600 leading-relaxed pl-8 border-l-4 border-primary-200 italic">
+                            Atendemos pessoas além dos muros da vulnerabilidade visível — recuperação, segurança alimentar e acesso a alimentos de qualidade são pilares para que qualquer outro desenvolvimento seja possível.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-sm">
+                        <h3 class="font-display text-xl font-black text-primary-700 mb-6 uppercase tracking-widest text-sm">Programas</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-1">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                    <i class="fas fa-check text-xs"></i>
+                                </span>
+                                Centro de Recuperação
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-1">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                    <i class="fas fa-check text-xs"></i>
+                                </span>
+                                Pomar da Casa Branca
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700 font-semibold group transition-all hover:translate-x-1">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                                    <i class="fas fa-check text-xs"></i>
+                                </span>
+                                Segurança Alimentar
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
+
+            <div class="carousel-wrapper reveal-on-scroll">
+                <!-- Botões de Navegação -->
+                <button id="prev-btn" class="carousel-nav-btn prev" aria-label="Slide anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="next-btn" class="carousel-nav-btn next" aria-label="Próximo slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="carousel-container" id="cidadania-carousel">
+                    <div class="carousel-track" id="carousel-track">
+                        <div class="carousel-slide">
+                            <img src="../assets/cidadania1.png" alt="Polo Cidadania 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="../assets/cidadania2.jpg" alt="Polo Cidadania 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="../assets/cidadania3.png" alt="Polo Cidadania 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="../assets/cidadania4.jpg" alt="Polo Cidadania 4">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="../assets/cidadania5.png" alt="Polo Cidadania 5">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carousel-dots"></div>
             </div>
         </div>
     </section>
@@ -361,52 +415,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="../js/navbar.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (window.gsap) {
-                gsap.registerPlugin(ScrollTrigger);
-
-                // Força aceleração 3D para evitar jitter no scroll
-                gsap.config({ force3D: true });
-
-                // Entrance animations
-                gsap.from('.reveal-on-load', {
-                    y: 40,
-                    opacity: 0,
-                    duration: 1.2,
-                    ease: 'expo.out',
-                    stagger: 0.15
-                });
-
-                // Scroll animations
-                gsap.utils.toArray('.reveal-on-scroll').forEach(function (el) {
-                    gsap.from(el, {
-                        y: 50,
-                        opacity: 0,
-                        duration: 1,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: el,
-                            start: 'top 85%',
-                            toggleActions: 'play none none none'
-                        }
-                    });
-                });
-
-                // Parallax for Hero Background
-                gsap.to('.hero-bg', {
-                    yPercent: 15,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: '.hero-section',
-                        start: 'top top',
-                        end: 'bottom top',
-                        scrub: 0.8
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="../js/carrosselpolos.js"></script>
 </body>
 
 </html>
