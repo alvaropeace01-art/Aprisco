@@ -1,5 +1,14 @@
-- [x] Atualizar CSS da logo da navbar para usar variável `--logo-scale` com base de `height` fixa.
-- [x] Ajustar estado `.navbar.is-scrolled` para alterar apenas a variável de escala (sem animar `height` no scrolled).
-- [x] Definir `transform-origin` estável no `.logo-img` (left center) e transição suave com ease-out.
-- [x] Refinar breakpoints para preservar legibilidade e evitar redução excessiva.
+# Plano para Padronizar Animação Imagens #inclusao
+
+## Passos:
+- [x] 1. Editar pages/polos.html: Remover 'inclusao-image-card' das 4 divs de imagem em #inclusao
+
+- [x] 2. Editar js/carrosselpolos.js: Remover condição especial para 'inclusao-image-card' no ScrollTrigger
+
+- [x] 3. Editar css/custom.css: Remover estilos .inclusao-image-card
+
+- [x] 4. Verificar animação em polos.html (scroll até #inclusao)
+
+- [x] 5. Marcar como concluído
+
 

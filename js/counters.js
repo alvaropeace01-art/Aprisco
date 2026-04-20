@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!statsSection) return;
 
     const counters = statsSection.querySelectorAll('[data-target]');
+    if (!counters.length) return;
 
     function animateCounter(counter) {
         const target = parseInt(counter.getAttribute('data-target') || '0', 10);
@@ -29,14 +30,25 @@ document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(update);
     }
 
+    const VISIBILITY_THRESHOLD = 0.45;
+
     const observer = new IntersectionObserver(function (entries, obs) {
         entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                counters.forEach(animateCounter);
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
+            const counter = entry.target;
 
-    observer.observe(statsSection);
+            if (!entry.isIntersecting) return;
+            if (entry.intersectionRatio < VISIBILITY_THRESHOLD) return;
+            if (counter.dataset.animated === 'true') return;
+
+            counter.dataset.animated = 'true';
+            animateCounter(counter);
+            obs.unobserve(counter);
+        });
+    }, {
+        threshold: [VISIBILITY_THRESHOLD]
+    });
+
+    counters.forEach(function (counter) {
+        observer.observe(counter);
+    });
 });
