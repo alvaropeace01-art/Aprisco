@@ -1,7 +1,5 @@
-# TODO - Boxed Layout + Padronização Home
+- [x] Atualizar CSS da logo da navbar para usar variável `--logo-scale` com base de `height` fixa.
+- [x] Ajustar estado `.navbar.is-scrolled` para alterar apenas a variável de escala (sem animar `height` no scrolled).
+- [x] Definir `transform-origin` estável no `.logo-img` (left center) e transição suave com ease-out.
+- [x] Refinar breakpoints para preservar legibilidade e evitar redução excessiva.
 
-- [x] Padronizar containers centrais (boxed layout) na Home
-- [x] Garantir margens laterais consistentes em desktop
-- [x] Manter apenas fundos full-width com conteúdo interno centralizado
-- [x] Ajustar navbar para roxo original com visual limpo e legível
-- [x] Ampliar levemente a seção de Endosso Institucional (mais presença sem exagero)
