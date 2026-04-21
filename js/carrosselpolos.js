@@ -41,155 +41,156 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Carousel Cidadania Logic - Optimized GSAP Loop
-        const track = document.getElementById('carousel-track');
-        const dotsContainer = document.getElementById('carousel-dots');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        
-        const originalSlides = Array.from(track.children);
-        const originalLength = originalSlides.length;
-        
-        // Clone slides to create infinite effect
-        // Append all slides once more to the end
-        originalSlides.forEach(slide => {
-            const clone = slide.cloneNode(true);
-            track.appendChild(clone);
-        });
-        
-        // Prepend all slides once more to the beginning
-        [...originalSlides].reverse().forEach(slide => {
-            const clone = slide.cloneNode(true);
-            track.insertBefore(clone, track.firstChild);
-        });
-
-        const allSlides = Array.from(track.children);
-        let currentIndex = originalLength; // Start at the first original slide
-        let isTransitioning = false;
-        let autoPlayInterval;
-        let autoPlayTimeout;
-
-        // Create Dots (only for original slides)
-        originalSlides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                if (isTransitioning) return;
-                goToSlide(index + originalLength);
-                handleManualInteraction();
-            });
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = Array.from(dotsContainer.children);
-
-        // Manual Navigation
-        prevBtn.addEventListener('click', () => {
-            if (isTransitioning) return;
-            prevSlide();
-            handleManualInteraction();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (isTransitioning) return;
-            nextSlide();
-            handleManualInteraction();
-        });
-
-        function handleManualInteraction() {
-            clearInterval(autoPlayInterval);
-            clearTimeout(autoPlayTimeout);
-            autoPlayTimeout = setTimeout(() => {
-                startAutoPlay();
-            }, 3000);
-        }
-
-        function getVisibleSlides() {
-            if (window.innerWidth >= 1024) return 3;
-            if (window.innerWidth >= 640) return 2;
-            return 1;
-        }
-
-        function updateCarousel(withTransition = true) {
-            const visibleSlides = getVisibleSlides();
-            // Precisão de sub-pixel para evitar "vazamento" de imagens vizinhas
-            const slideWidth = allSlides[0].getBoundingClientRect().width;
-            const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        // Carousel Logic - Optimized GSAP Loop
+        function initPolosCarousel(trackId, dotsId, prevBtnId, nextBtnId) {
+            const track = document.getElementById(trackId);
+            const dotsContainer = document.getElementById(dotsId);
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
             
-            const offset = currentIndex * (slideWidth + gap);
+            if (!track || !dotsContainer) return;
 
-            if (withTransition) {
-                isTransitioning = true;
-                gsap.to(track, {
-                    x: -offset,
-                    duration: 0.6,
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        checkIndex();
-                        isTransitioning = false;
-                    }
-                });
-            } else {
-                gsap.set(track, { x: -offset });
-            }
-
-            // Update Dots
-            const dotIndex = currentIndex % originalLength;
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === dotIndex);
+            const originalSlides = Array.from(track.children);
+            const originalLength = originalSlides.length;
+            
+            // Clone slides to create infinite effect
+            originalSlides.forEach(slide => {
+                const clone = slide.cloneNode(true);
+                track.appendChild(clone);
             });
-        }
+            
+            [...originalSlides].reverse().forEach(slide => {
+                const clone = slide.cloneNode(true);
+                track.insertBefore(clone, track.firstChild);
+            });
 
-        function checkIndex() {
-            // Se chegou na parte clonada do final (passou todos os originais + clones do início)
-            if (currentIndex >= originalLength * 2) {
-                currentIndex = originalLength;
-                updateCarousel(false);
+            const allSlides = Array.from(track.children);
+            let currentIndex = originalLength;
+            let isTransitioning = false;
+            let autoPlayInterval;
+            let autoPlayTimeout;
+
+            originalSlides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    if (isTransitioning) return;
+                    goToSlide(index + originalLength);
+                    handleManualInteraction();
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = Array.from(dotsContainer.children);
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (isTransitioning) return;
+                    prevSlide();
+                    handleManualInteraction();
+                });
             }
-            // Se chegou na parte clonada do início
-            if (currentIndex < originalLength) {
-                currentIndex = originalLength * 2 - 1;
-                if (getVisibleSlides() === 1) {
-                  // Specific fix for 1 slide visible logic
-                  if (currentIndex < originalLength) currentIndex = originalLength * 2 - 1;
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if (isTransitioning) return;
+                    nextSlide();
+                    handleManualInteraction();
+                });
+            }
+
+            function handleManualInteraction() {
+                clearInterval(autoPlayInterval);
+                clearTimeout(autoPlayTimeout);
+                autoPlayTimeout = setTimeout(() => {
+                    startAutoPlay();
+                }, 3000);
+            }
+
+            function getVisibleSlides() {
+                if (window.innerWidth >= 1024) return 3;
+                if (window.innerWidth >= 640) return 2;
+                return 1;
+            }
+
+            function updateCarousel(withTransition = true) {
+                const visibleSlides = getVisibleSlides();
+                const slideWidth = allSlides[0].getBoundingClientRect().width;
+                const gap = parseFloat(getComputedStyle(track).gap) || 0;
+                
+                const offset = currentIndex * (slideWidth + gap);
+
+                if (withTransition) {
+                    isTransitioning = true;
+                    gsap.to(track, {
+                        x: -offset,
+                        duration: 0.6,
+                        ease: "power2.inOut",
+                        onComplete: () => {
+                            checkIndex();
+                            isTransitioning = false;
+                        }
+                    });
+                } else {
+                    gsap.set(track, { x: -offset });
                 }
-                updateCarousel(false);
+
+                const dotIndex = currentIndex % originalLength;
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === dotIndex);
+                });
             }
+
+            function checkIndex() {
+                if (currentIndex >= originalLength * 2) {
+                    currentIndex = originalLength;
+                    updateCarousel(false);
+                }
+                if (currentIndex < originalLength) {
+                    currentIndex = originalLength * 2 - 1;
+                    if (getVisibleSlides() === 1) {
+                      if (currentIndex < originalLength) currentIndex = originalLength * 2 - 1;
+                    }
+                    updateCarousel(false);
+                }
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                if (isTransitioning) return;
+                currentIndex++;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                if (isTransitioning) return;
+                currentIndex--;
+                updateCarousel();
+            }
+
+            function startAutoPlay() {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = setInterval(nextSlide, 2000);
+            }
+
+            window.addEventListener('resize', () => {
+                updateCarousel(false);
+            });
+            
+            gsap.set(track, { x: 0 });
+            setTimeout(() => {
+                updateCarousel(false);
+                startAutoPlay();
+            }, 100);
         }
 
-        // Logic refined for infinite feel
-        function goToSlide(index) {
-            currentIndex = index;
-            updateCarousel();
-        }
-
-        function nextSlide() {
-            if (isTransitioning) return;
-            currentIndex++;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            if (isTransitioning) return;
-            currentIndex--;
-            updateCarousel();
-        }
-
-        function startAutoPlay() {
-            clearInterval(autoPlayInterval);
-            autoPlayInterval = setInterval(nextSlide, 2000);
-        }
-
-        window.addEventListener('resize', () => {
-            updateCarousel(false);
-        });
-        
-        // Initial setup
-        gsap.set(track, { x: 0 }); // Reset before positioning
-        setTimeout(() => {
-            updateCarousel(false);
-            startAutoPlay();
-        }, 100);
+        // Initialize carousels
+        initPolosCarousel('carousel-track', 'carousel-dots', 'prev-btn', 'next-btn');
+        initPolosCarousel('cultura-track', 'cultura-dots', 'cultura-prev-btn', 'cultura-next-btn');
     }
 });
