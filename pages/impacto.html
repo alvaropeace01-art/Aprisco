@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impacto - O Aprisco</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#F5F3FF',
+                            500: '#8B5CF6',
+                            600: '#7C3AED',
+                            700: '#6D28D9'
+                        },
+                        secondary: {
+                            400: '#FCD34D',
+                            500: '#F59E0B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar fixed w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 md:h-24 transition-all duration-500"
+                id="navbar-container">
+                <div class="flex items-center">
+                    <a href="home.html" class="logo-link group" aria-label="O Aprisco - Home">
+                        <img src="../assets/ovelhapng.svg" alt="O Aprisco"
+                            class="logo-img transition-transform duration-500 group-hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-1 nav-links">
+                    <a href="home.html" class="nav-item">Home</a>
+                    <a href="quemsomos.html" class="nav-item">Quem Somos</a>
+                    <div class="relative group">
+                        <button class="nav-item flex items-center gap-1 active" aria-expanded="false">
+                            Impacto
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
+                                <a href="#topo"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium dropdown-item">Visão
+                                    Geral</a>
+                                <a href="#relatorio"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Relatório
+                                    de Impacto</a>
+                                <a href="#historias"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Histórias</a>
+                                <a href="#transparencia"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Transparência</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-item flex items-center gap-1">
+                            Atuação
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
+                                <a href="polos.html"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium dropdown-item">Eixos
+                                    de Atuação</a>
+                                <a href="polos.html#cidadania"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    Cidadania</a>
+                                <a href="polos.html#inclusao"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Inclusão Produtiva</a>
+                                <a href="polos.html#educacao"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Educação</a>
+                                <a href="polos.html#esporte"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Esporte</a>
+                                <a href="polos.html#cultura"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
+                                    de Cultura</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button Desktop -->
+                <div class="hidden lg:block">
+                    <a href="#doacoes"
+                        class="bg-secondary-500 hover:bg-secondary-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg shadow-secondary-500/20 hover:shadow-secondary-500/40 transform hover:-translate-y-1">
+                        Doar Agora
+                    </a>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="relative z-50 p-2 text-white focus:outline-none group">
+                        <div class="w-6 h-5 relative flex flex-col justify-between">
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full"
+                                id="menu-line-1"></span>
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full"
+                                id="menu-line-2"></span>
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full"
+                                id="menu-line-3"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer Overlay -->
+        <div id="mobile-menu-overlay"
+            class="fixed inset-0 bg-primary-900/40 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-500">
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu"
+            class="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-50 flex flex-col shadow-2xl opacity-100">
+            <div class="p-8 flex-1 overflow-y-auto">
+                <div class="flex items-center justify-between mb-10">
+                    <img src="../assets/ovelhapng.svg" alt="O Aprisco" class="h-10 w-auto brightness-0">
+                    <button id="close-mobile-menu" class="p-2 text-gray-500 hover:text-primary-600 transition-colors"
+                        aria-label="Fechar menu">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col space-y-4">
+                    <a href="home.html" class="mobile-nav-item">Home</a>
+                    <a href="quemsomos.html" class="mobile-nav-item">Quem Somos</a>
+                    <!-- Mobile Impacto Accordion -->
+                    <div class="mobile-submenu-container relative">
+                        <button id="mobile-impacto-btn"
+                            class="mobile-nav-item w-full flex items-center justify-between group active">
+                            Impacto
+                            <svg class="w-5 h-5 transition-transform duration-300 pointer-events-none"
+                                id="mobile-impacto-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobile-impacto-submenu"
+                            class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
+                            <a href="#topo" class="mobile-sub-link">Visão Geral</a>
+                            <a href="#relatorio" class="mobile-sub-link">Relatório de Impacto</a>
+                            <a href="#historias" class="mobile-sub-link">Histórias</a>
+                            <a href="#transparencia" class="mobile-sub-link">Transparência</a>
+                        </div>
+                    </div>
+                    <!-- Mobile Atuação Accordion -->
+                    <div class="mobile-submenu-container relative">
+                        <button id="mobile-atuacao-btn"
+                            class="mobile-nav-item w-full flex items-center justify-between group">
+                            Atuação
+                            <svg class="w-5 h-5 transition-transform duration-300 pointer-events-none"
+                                id="mobile-atuacao-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobile-atuacao-submenu"
+                            class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
+                            <a href="polos.html" class="mobile-sub-link">Eixos de Atuação</a>
+                            <a href="polos.html#cidadania" class="mobile-sub-link">Polo Cidadania</a>
+                            <a href="polos.html#inclusao" class="mobile-sub-link">Polo de Inclusão Produtiva</a>
+                            <a href="polos.html#educacao" class="mobile-sub-link">Polo de Educação</a>
+                            <a href="polos.html#esporte" class="mobile-sub-link">Polo de Esporte</a>
+                            <a href="polos.html#cultura" class="mobile-sub-link">Polo de Cultura</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="mt-10 pt-10 border-t border-gray-100">
+                    <a href="#doacoes"
+                        class="w-full block bg-primary-600 text-white text-center font-bold py-4 rounded-2xl shadow-lg shadow-primary-600/20">
+                        Quero Contribuir
+                    </a>
+                </div>
+            </div>
+            <div class="p-8 bg-gray-50">
+                <p class="text-sm text-gray-500 mb-2 font-medium">Siga-nos</p>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com/oaprisco.itaguai"
+                        class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary-600 shadow-sm hover:bg-primary-600 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="topo" class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden bg-primary-900">
+        <div class="hero-bg" style="background-image: url('../assets/impactohero.jpg');" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10 pt-20">
+            <span class="inline-block py-2 px-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-secondary-400 font-bold tracking-widest uppercase text-sm mb-8 reveal-on-load">
+                Impacto Real
+            </span>
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8 reveal-on-load tracking-tight">
+                Transformando realidades,<br><span class="text-secondary-400">construindo o futuro.</span>
+            </h1>
+            <p class="font-sans text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 reveal-on-load leading-relaxed">
+                Resultados reais, transparência comprovada e histórias que inspiram.
+            </p>
+            <div class="reveal-on-load flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="#doacoes"
+                    class="w-full sm:w-auto bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-bold text-lg py-4 px-8 rounded-full transition duration-300 shadow-xl shadow-secondary-500/30">
+                    Investir neste impacto
+                </a>
+                <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank"
+                    class="w-full sm:w-auto bg-transparent border-2 border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-primary-900 font-bold text-lg py-4 px-8 rounded-full transition duration-300">
+                    Entrar em contato
+                </a>
+            </div>
+        </div>
+
+        <!-- Animated scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer opacity-50 hover:opacity-100 transition-opacity"
+            onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path>
+            </svg>
+        </div>
+        <div class="hero-bottom-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- Cotas de Impacto -->
+    <section id="doacoes" class="py-24 bg-gray-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="font-display text-4xl md:text-5xl font-black text-primary-700">Invista em impacto real</h2>
+                <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full mx-auto mb-6"></div>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                    Seu investimento financia diretamente as atividades de um jovem. Escolha onde quer gerar impacto:
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 items-stretch justify-items-center reveal-on-scroll">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden group max-w-sm w-full flex flex-col transition-shadow duration-300 hover:shadow-2xl">
+                    <img src="../assets/doacaomusica.jpg" alt="Doação" class="w-full h-48 object-cover opacity-90 group-hover:opacity-100 transition">
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-primary-700 font-bold text-2xl mb-2">Música</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Patrocine o kit de música de um jovem.</p>
+                        <div class="text-4xl font-black text-secondary-500 mb-6">R$ 100<span class="text-lg text-gray-500 font-normal">,00</span></div>
+                        <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank" class="w-full text-center bg-primary-600 hover:bg-primary-500 text-white font-bold py-3 px-6 rounded-xl transition">Quero Apoiar</a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden group max-w-sm w-full flex flex-col transition-shadow duration-300 hover:shadow-2xl relative border-2 border-secondary-400">
+                    <div class="absolute top-4 right-4 bg-secondary-400 text-primary-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Educação</div>
+                    <img src="../assets/doacaoeducacao.jpg" alt="Doação" class="w-full h-48 object-cover opacity-90 group-hover:opacity-100 transition">
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-primary-700 font-bold text-2xl mb-2">Educação</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Patrocine o material escolar mensal de uma criança.</p>
+                        <div class="text-4xl font-black text-secondary-500 mb-6">R$ 80<span class="text-lg text-gray-500 font-normal">,00</span></div>
+                        <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank" class="w-full text-center bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-bold py-3 px-6 rounded-xl transition">Quero Apoiar</a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden group max-w-sm w-full flex flex-col transition-shadow duration-300 hover:shadow-2xl">
+                    <img src="../assets/doacaoesporte.jpg" alt="Doação" class="w-full h-48 object-cover opacity-90 group-hover:opacity-100 transition">
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-primary-700 font-bold text-2xl mb-2">Esporte</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Patrocine uma aula de esportes.</p>
+                        <div class="text-4xl font-black text-secondary-500 mb-6">R$ 50<span class="text-lg text-gray-500 font-normal">,00</span></div>
+                        <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank" class="w-full text-center bg-primary-600 hover:bg-primary-500 text-white font-bold py-3 px-6 rounded-xl transition">Quero Apoiar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 text-center reveal-on-scroll">
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto italic font-medium">Cada doação é rastreável. Você recebe um relatório do impacto gerado pelo seu investimento. Transparência de ponta a ponta.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Voluntariado -->
+    <section class="py-16 bg-primary-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <div class="reveal-on-scroll mb-10">
+                <h2 class="font-display text-4xl md:text-5xl font-black mb-6">Voluntariado</h2>
+                <div class="w-24 h-2 bg-secondary-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-xl text-black/90 max-w-3xl mx-auto leading-relaxed">
+                    Além de dinheiro, precisamos de expertise. Se você tem uma habilidade que pode transformar a realidade de jovens em Itaguaí, queremos conversar.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-12 reveal-on-scroll">
+                <img src="../assets/inclusao5.png" alt="Voluntariado" class="w-full h-48 md:h-64 object-cover rounded-3xl shadow-lg hover:scale-105 transition duration-300 opacity-90 hover:opacity-100">
+                <img src="../assets/expertise2.png" alt="Voluntariado" class="w-full h-48 md:h-64 object-cover rounded-3xl shadow-lg hover:scale-105 transition duration-300 opacity-90 hover:opacity-100">
+                <img src="../assets/cidadania4.jpg" alt="Voluntariado" class="w-full h-48 md:h-64 object-cover rounded-3xl shadow-lg hover:scale-105 transition duration-300 opacity-90 hover:opacity-100">
+            </div>
+
+            <div class="reveal-on-scroll">
+                <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+quero+oferecer+minha+expertise+como+volunt%C3%A1rio+no+Aprisco." target="_blank" class="inline-flex items-center justify-center bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-bold py-4 px-10 rounded-full transition-shadow shadow-xl hover:shadow-2xl text-lg">
+                    Quero Oferecer Minha Expertise
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Relatório de Impacto -->
+    <section id="relatorio" class="section-unified-bg py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="font-display text-4xl md:text-5xl font-black text-primary-700">Relatório de Impacto</h2>
+                <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full mx-auto mb-6"></div>
+                <p class="text-xl text-gray-700 max-w-4xl mx-auto">
+                    Impacto que não é medido não pode ser escalado. Por isso, publicamos anualmente nosso relatório completo de atividades — com números, histórias e indicadores que permitem que qualquer investidor avalie o retorno social do seu aporte.
+                </p>
+            </div>
+
+            <!-- 2024 -->
+            <div class="mb-20">
+                <h3 class="text-3xl font-black text-primary-600 mb-8 flex items-center reveal-on-scroll">
+                    <span class="w-8 h-8 rounded-lg bg-secondary-400 flex items-center justify-center text-white mr-4"><i class="fas fa-calendar-alt"></i></span>
+                    2024
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="157" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">pessoas atendidas pelo PEC</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="9033" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">atendimentos (Polo PEC)</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="77" data-prefix="" data-suffix="%">0</div>
+                        <p class="stat-label">frequência no Polo PEC</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="13" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">oficinas oferecidas</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="45" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">formados no Polo QP</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="644" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">atendimentos no Polo QP</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="35" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">pessoas empregadas</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="6100" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">refeições e lanches</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="265" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">cestas básicas doadas</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="100" data-prefix="+" data-suffix="">0</div>
+                        <p class="stat-label">famílias atendidas</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="3" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">comunidades atendidas</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="mb-12">
+                <h3 class="text-3xl font-black text-primary-600 mb-8 flex items-center reveal-on-scroll">
+                    <span class="w-8 h-8 rounded-lg bg-gray-400 flex items-center justify-center text-white mr-4"><i class="fas fa-calendar-alt"></i></span>
+                    2023
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="176" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">pessoas atendidas pelo PEC</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="9290" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">atendimentos (Polo PEC)</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="82" data-prefix="" data-suffix="%">0</div>
+                        <p class="stat-label">frequência no Polo PEC</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="13" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">oficinas oferecidas</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="107" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">formados no Polo QP</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="900" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">atendimentos no Polo QP</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="70" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">pessoas empregadas</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="10752" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">refeições e lanches</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="100" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">cestas básicas doadas</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="150" data-prefix="+" data-suffix="">0</div>
+                        <p class="stat-label">famílias atendidas</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="3" data-prefix="" data-suffix="">0</div>
+                        <p class="stat-label">comunidades atendidas</p>
+                    </article>
+                    <article class="stat-card reveal-on-scroll">
+                        <div class="stat-number" data-target="90" data-prefix="" data-suffix=" pts">0</div>
+                        <p class="stat-label">auditoria Gerando Falcões</p>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Histórias de Impacto -->
+    <section id="historias" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="font-display text-4xl md:text-5xl font-black text-primary-700">Histórias de Impacto</h2>
+                <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full mx-auto mb-6"></div>
+                <p class="text-xl text-gray-700 max-w-4xl mx-auto">
+                    Por trás de cada número, existe uma trajetória real. Estas são algumas das histórias de quem investiu em si mesmo — e encontro            <div class="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-10 reveal-on-scroll">
+                <!-- História 1 -->
+                <div class="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 w-full h-full">
+                    <div class="w-full aspect-square relative flex-shrink-0">
+                        <img src="../assets/mariaeduarda.png" alt="Maria Eduarda" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-primary-700 mb-1">Maria Eduarda</h3>
+                        <p class="text-secondary-500 font-bold mb-4 uppercase tracking-widest text-sm">17 anos · Música</p>
+                        <p class="text-gray-600 leading-relaxed text-base flex-grow">Em 2016, Eduarda chegou à Banda Commil sem nunca ter tocado um instrumento. Em menos de 10 anos, conquistou uma bolsa na Orquestra Chiquinha Gonzaga, participou de uma turnê internacional em Portugal e foi aprovada como bolsista da Banda Municipal de Itaguaí. O Morro do Sase chegou ao mundo através da sua música.</p>
+                    </div>
+                </div>
+
+                <!-- História 2 -->
+                 <div class="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 w-full h-full">
+                    <div class="w-full aspect-square relative flex-shrink-0">
+                        <img src="../assets/lucassilva.png" alt="Lucas Silva" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-primary-700 mb-1">Lucas Silva</h3>
+                        <p class="text-secondary-500 font-bold mb-4 uppercase tracking-widest text-sm">21 anos · Forças Armadas</p>
+                        <p class="text-gray-600 leading-relaxed text-base flex-grow">Retornou às Forças Armadas como músico. A formação musical em O Aprisco foi o diferencial que abriu essa porta.</p>
+                    </div>
+                </div>
+                
+                <!-- História 3 -->
+                <div class="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 w-full h-full">
+                    <div class="w-full aspect-square relative flex-shrink-0">
+                        <img src="../assets/erickhenrique.png" alt="Erick Henrique" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-primary-700 mb-1">Erick Henrique</h3>
+                        <p class="text-secondary-500 font-bold mb-4 uppercase tracking-widest text-sm">26 anos · Maestro</p>
+                        <p class="text-gray-600 leading-relaxed text-base flex-grow">Ex-aluno e ex-maestro da Commil. Aprovado no concurso para instrutor municipal de música. A Commil não só formou seu talento — estruturou sua carreira.</p>
+                    </div>
+                </div>
+
+                <!-- História 4 -->
+                <div class="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 w-full h-full">
+                    <div class="w-full aspect-square relative flex-shrink-0">
+                        <img src="../assets/mariaeduarda2.png" alt="Maria Eduarda" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-primary-700 mb-1">Maria Eduarda</h3>
+                        <p class="text-secondary-500 font-bold mb-4 uppercase tracking-widest text-sm">21 anos · Empreendedora</p>
+                        <p class="text-gray-600 leading-relaxed text-base flex-grow">Aluna avançada da oficina de Crochê, hoje é fundadora do próprio negócio: Eduarda Crochê. O que começou como uma oficina de qualificação virou uma fonte de renda independente.</p>
+                    </div>
+                </div>
+
+                <!-- História 5 -->
+                <div class="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 w-full h-full">
+                    <div class="w-full aspect-square relative flex-shrink-0">
+                        <img src="../assets/anacarolineandre.jpg" alt="Equipe Regência" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-primary-700 mb-1">Ana Flávia</h3>
+                        <p class="text-secondary-500 font-bold mb-4 uppercase tracking-widest text-sm">19 anos · Regência</p>
+                        <h3 class="text-2xl font-bold text-primary-700 mb-1">Caroline Mariano</h3>
+                        <p class="text-secondary-500 font-bold mb-4 uppercase tracking-widest text-sm">19 anos · Regência</p>
+                        <h3 class="text-2xl font-bold text-primary-700 mb-1">André Martins</h3>
+                        <p class="text-secondary-500 font-bold mb-4 uppercase tracking-widest text-sm">26 anos · Regência</p>
+                        <p class="text-gray-600 leading-relaxed text-base flex-grow">Nossa maestrina Ana Flávia, ex-aluna da Banda Commil, assumiu a regência da Orquestra em 2023 e recentemente foi aprovada no concurso para instrutora de da Banda Municipal de Itaguaí. Da mesma forma, nossos talentosos coreógrafos, Caroline Mariano e André Martins, que desenvolveram suas habilidades na Commil, também foram aprovados como instrutores de coreografia na Banda Municipal de Itaguaí</p>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+    </section>
+
+    <!-- Transparência -->
+    <section id="transparencia" class="py-24 bg-gray-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-16 reveal-on-scroll">
+                <div class="w-full text-center">
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-primary-700">Transparência e Governança</h2>
+                    <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full mx-auto"></div>
+                </div>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p class="text-xl text-gray-700 leading-relaxed font-medium max-w-4xl mx-auto text-center mb-16">
+                    Para grandes parceiros, transparência não é diferencial — é pré-requisito. Por isso, publicamos nossos relatórios de atividades, balanços financeiros e resultados auditados. Nossa estrutura foi desenvolvida para passar em auditorias corporativas e credenciar O Aprisco como destino seguro e estratégico para o investimento social de empresas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conquistas -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-10">
+                    <div>
+                        <h2 class="font-display text-4xl md:text-5xl font-black text-primary-700">Conquistas e Reconhecimentos</h2>
+                        <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full mb-6"></div>
+                        <p class="text-xl text-gray-700 leading-relaxed font-medium">
+                            O trabalho que entregamos é reconhecido por quem avalia com critério:
+                        </p>
+                    </div>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-gray-700 text-lg font-medium group transition-transform hover:translate-x-1">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-0.5 shadow-sm"><i class="fas fa-trophy text-sm"></i></span>
+                            Diploma Heloneida Studart — Assembleia Legislativa do Estado do Rio de Janeiro
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-700 text-lg font-medium group transition-transform hover:translate-x-1">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-0.5 shadow-sm"><i class="fas fa-trophy text-sm"></i></span>
+                            Campeões do Campeonato Nacional de Bandas — Orquestra da Commil
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-700 text-lg font-medium group transition-transform hover:translate-x-1">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-0.5 shadow-sm"><i class="fas fa-trophy text-sm"></i></span>
+                            Tricampeões do Campeonato Estadual de Bandas — Orquestra da Commil
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-700 text-lg font-medium group transition-transform hover:translate-x-1">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-0.5 shadow-sm"><i class="fas fa-trophy text-sm"></i></span>
+                            1º Festival de Música de Itaguaí — artistas internacionais presentes
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-700 text-lg font-medium group transition-transform hover:translate-x-1">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-0.5 shadow-sm"><i class="fas fa-trophy text-sm"></i></span>
+                            Moção de congratulações da Câmara Municipal de Itaguaí
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-700 text-lg font-medium group transition-transform hover:translate-x-1">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-0.5 shadow-sm"><i class="fas fa-trophy text-sm"></i></span>
+                            Aprovados no Edital de Aceleração da Rede Gerando Falcões
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-700 text-lg font-medium group transition-transform hover:translate-x-1">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-0.5 shadow-sm"><i class="fas fa-trophy text-sm"></i></span>
+                            Aprovados no Edital de Inclusão Produtiva — R$ 30.000
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-700 text-lg font-medium group transition-transform hover:translate-x-1">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-0.5 shadow-sm"><i class="fas fa-trophy text-sm"></i></span>
+                            Aprovados na Lei Paulo Gustavo — formação artística
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
+                        <img src="../assets/conquista.png" alt="Conquistas e Reconhecimentos" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-secondary-400">O Aprisco</h3>
+                <p class="text-gray-300 mb-6">Associação de Desenvolvimento Humano e Social</p>
+                <div class="flex justify-center md:justify-start space-x-6 text-2xl">
+                    <a href="https://instagram.com/oaprisco.itaguai"
+                        class="hover:text-secondary-400 transition">@oaprisco.itaguai</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4 text-secondary-400">Contato</h4>
+                <p class="mb-2">Rua Xavantes, Lt28, Qd75<br>Vila Ibirapitanga, Itaguaí/RJ</p>
+                <p class="mb-2">CNPJ: 45.217.322/0001-25</p>
+                <p class="mb-4">📧 <a href="mailto:adm.oaprisco@outlook.com.br"
+                        class="hover:text-secondary-400 transition">adm.oaprisco@outlook.com.br</a></p>
+                <p>📞 (21) 98111-6424</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 O Aprisco. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/counters.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.gsap) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Força aceleração 3D para evitar jitter no scroll
+                gsap.config({ force3D: true });
+
+                // Entrance animations
+                gsap.from('.reveal-on-load', {
+                    y: 40,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: 'expo.out',
+                    stagger: 0.15
+                });
+
+                // Scroll animations
+                gsap.utils.toArray('.reveal-on-scroll').forEach(function (el) {
+                    gsap.from(el, {
+                        y: 50,
+                        opacity: 0,
+                        duration: 1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none'
+                        }
+                    });
+                });
+
+                // Parallax for Hero Background
+                gsap.to('.hero-bg', {
+                    yPercent: 15,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: '.hero-section',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: 0.8
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

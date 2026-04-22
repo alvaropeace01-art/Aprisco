@@ -86,11 +86,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Mobile "Impacto" Submenu Toggle
+    const mobileImpactoBtn = document.getElementById('mobile-impacto-btn');
+    const mobileImpactoSubmenu = document.getElementById('mobile-impacto-submenu');
+    const mobileImpactoArrow = document.getElementById('mobile-impacto-arrow');
+
+    if (mobileImpactoBtn && mobileImpactoSubmenu) {
+        mobileImpactoBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = mobileImpactoSubmenu.classList.toggle('is-open');
+            if (mobileImpactoArrow) {
+                mobileImpactoArrow.classList.toggle('rotate-180', isOpen);
+            }
+        });
+    }
+
     // Close menu on link click
     document.querySelectorAll('.nav-item, .mobile-nav-item, .mobile-sub-link').forEach(link => {
         link.addEventListener('click', (e) => {
             // Se for o botão de toggle do mobile, não fecha o menu principal
-            if (link.id === 'mobile-atuacao-btn') return;
+            if (link.id === 'mobile-atuacao-btn' || link.id === 'mobile-impacto-btn') return;
             
             if (isMenuOpen) toggleMenu();
         });
@@ -125,6 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Lógica para botões (como 'Atuação' no desktop/mobile)
             if (currentPath === 'polos.html' && text.includes('Atuação')) {
                 link.classList.add('active');
+            } else if (currentPath === 'impacto.html' && text.includes('Impacto')) {
+                link.classList.add('active');
             } else {
                 link.classList.remove('active');
             }
@@ -140,6 +157,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // Caso especial para mantar o pai 'Atuação' ativo via texto se for um link (mobile)
             if (currentPath === 'polos.html' && text.includes('Atuação')) {
+                link.classList.add('active');
+            } else if (currentPath === 'impacto.html' && text.includes('Impacto')) {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');

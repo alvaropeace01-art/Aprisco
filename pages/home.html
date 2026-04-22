@@ -56,7 +56,29 @@
                 <div class="hidden lg:flex items-center space-x-1 nav-links">
                     <a href="home.html" class="nav-item active">Home</a>
                     <a href="quemsomos.html" class="nav-item">Quem Somos</a>
-                    <a href="impacto.html" class="nav-item">Impacto</a>
+                    <div class="relative group">
+                        <button class="nav-item flex items-center gap-1">
+                            Impacto
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
+                                <a href="impacto.html"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium dropdown-item">Visão Geral</a>
+                                <a href="impacto.html#relatorio"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Relatório de Impacto</a>
+                                <a href="impacto.html#historias"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Histórias</a>
+                                <a href="impacto.html#transparencia"
+                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Transparência</a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="relative group">
                         <button class="nav-item flex items-center gap-1">
                             Atuação
@@ -90,14 +112,11 @@
                             </div>
                         </div>
                     </div>
-                    <a href="historias.html" class="nav-item">Histórias</a>
-                    <a href="financeiro.html" class="nav-item">Financeiro</a>
-                    <a href="transparencia.html" class="nav-item">Transparência</a>
                 </div>
 
                 <!-- Action Button Desktop -->
                 <div class="hidden lg:block">
-                    <a href="financeiro.html"
+                    <a href="impacto.html#doacoes"
                         class="bg-secondary-500 hover:bg-secondary-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg shadow-secondary-500/20 hover:shadow-secondary-500/40 transform hover:-translate-y-1">
                         Doar Agora
                     </a>
@@ -141,7 +160,25 @@
                 <nav class="flex flex-col space-y-4">
                     <a href="home.html" class="mobile-nav-item">Home</a>
                     <a href="quemsomos.html" class="mobile-nav-item">Quem Somos</a>
-                    <a href="impacto.html" class="mobile-nav-item">Impacto</a>
+                    <!-- Mobile Impacto Accordion -->
+                    <div class="mobile-submenu-container">
+                        <button id="mobile-impacto-btn"
+                            class="mobile-nav-item w-full flex items-center justify-between group">
+                            Impacto
+                            <svg class="w-5 h-5 transition-transform duration-300 pointer-events-none"
+                                id="mobile-impacto-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobile-impacto-submenu"
+                            class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
+                            <a href="impacto.html" class="mobile-sub-link">Visão Geral</a>
+                            <a href="impacto.html#relatorio" class="mobile-sub-link">Relatório de Impacto</a>
+                            <a href="impacto.html#historias" class="mobile-sub-link">Histórias</a>
+                            <a href="impacto.html#transparencia" class="mobile-sub-link">Transparência</a>
+                        </div>
+                    </div>
                     <!-- Mobile Atuação Accordion -->
                     <div class="mobile-submenu-container">
                         <button id="mobile-atuacao-btn"
@@ -163,12 +200,9 @@
                             <a href="polos.html#cultura" class="mobile-sub-link">Polo de Cultura</a>
                         </div>
                     </div>
-                    <a href="historias.html" class="mobile-nav-item">Histórias</a>
-                    <a href="financeiro.html" class="mobile-nav-item">Financeiro</a>
-                    <a href="transparencia.html" class="mobile-nav-item">Transparência</a>
                 </nav>
                 <div class="mt-10 pt-10 border-t border-gray-100">
-                    <a href="financeiro.html"
+                    <a href="impacto.html#doacoes"
                         class="w-full block bg-primary-600 text-white text-center font-bold py-4 rounded-2xl shadow-lg shadow-primary-600/20">
                         Quero Contribuir
                     </a>
@@ -206,7 +240,7 @@
                 de 9.000 atendimentos por ano. 90 pontos na auditoria da Rede Gerando Falcões.
             </p>
             <div class="reveal-on-load flex flex-col sm:flex-row items-center justify-center gap-5">
-                <a href="financeiro.html"
+                <a href="impacto.html#doacoes"
                     class="w-full sm:w-auto bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-black text-lg py-5 px-10 rounded-2xl transition-all duration-300 shadow-xl shadow-secondary-500/30 transform hover:-translate-y-1">
                     Quero Investir Nessa Causa
                 </a>
