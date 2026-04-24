@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos - O Aprisco</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#F5F3FF',
+                            500: '#8B5CF6',
+                            600: '#7C3AED',
+                            700: '#6D28D9',
+                            900: '#4C1D95'
+                        },
+                        secondary: {
+                            400: '#FCD34D',
+                            500: '#F59E0B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/custom.css">
+    <style>
+        .map-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar fixed w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 md:h-24 transition-all duration-500" id="navbar-container">
+                <div class="flex items-center">
+                    <a href="home.html" class="logo-link group" aria-label="O Aprisco - Home">
+                        <img src="../assets/ovelhapng.svg" alt="O Aprisco" class="logo-img transition-transform duration-500 group-hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-1 nav-links">
+                    <a href="home.html" class="nav-item">Home</a>
+                    <a href="quemsomos.html" class="nav-item active">Quem Somos</a>
+                    <div class="relative group">
+                        <button class="nav-item flex items-center gap-1" aria-expanded="false">
+                            Impacto
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
+                                <a href="impacto.html" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium dropdown-item">Visão Geral</a>
+                                <a href="impacto.html#relatorio" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Relatório de Impacto</a>
+                                <a href="impacto.html#historias" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Histórias</a>
+                                <a href="impacto.html#transparencia" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Transparência</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-item flex items-center gap-1">
+                            Atuação
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
+                                <a href="polos.html" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium dropdown-item">Eixos de Atuação</a>
+                                <a href="polos.html#cidadania" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo Cidadania</a>
+                                <a href="polos.html#inclusao" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo de Inclusão Produtiva</a>
+                                <a href="polos.html#educacao" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo de Educação</a>
+                                <a href="polos.html#esporte" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo de Esporte</a>
+                                <a href="polos.html#cultura" class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo de Cultura</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button Desktop -->
+                <div class="hidden lg:block">
+                    <a href="impacto.html#doacoes" class="bg-secondary-500 hover:bg-secondary-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg shadow-secondary-500/20 hover:shadow-secondary-500/40 transform hover:-translate-y-1">
+                        Doar Agora
+                    </a>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="relative z-50 p-2 text-white focus:outline-none group">
+                        <div class="w-6 h-5 relative flex flex-col justify-between">
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full" id="menu-line-1"></span>
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full" id="menu-line-2"></span>
+                            <span class="w-full h-0.5 bg-current transition-all duration-300 rounded-full" id="menu-line-3"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-primary-900/40 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-50 flex flex-col shadow-2xl opacity-100">
+            <div class="p-8 flex-1 overflow-y-auto">
+                <div class="flex items-center justify-between mb-10">
+                    <img src="../assets/ovelhapng.svg" alt="O Aprisco" class="h-10 w-auto brightness-0">
+                    <button id="close-mobile-menu" class="p-2 text-gray-500 hover:text-primary-600 transition-colors" aria-label="Fechar menu">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col space-y-4">
+                    <a href="home.html" class="mobile-nav-item">Home</a>
+                    <a href="quemsomos.html" class="mobile-nav-item active">Quem Somos</a>
+                    <!-- Mobile Impacto Accordion -->
+                    <div class="mobile-submenu-container relative">
+                        <button id="mobile-impacto-btn" class="mobile-nav-item w-full flex items-center justify-between group">
+                            Impacto
+                            <svg class="w-5 h-5 transition-transform duration-300 pointer-events-none" id="mobile-impacto-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobile-impacto-submenu" class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
+                            <a href="impacto.html" class="mobile-sub-link">Visão Geral</a>
+                            <a href="impacto.html#relatorio" class="mobile-sub-link">Relatório de Impacto</a>
+                            <a href="impacto.html#historias" class="mobile-sub-link">Histórias</a>
+                            <a href="impacto.html#transparencia" class="mobile-sub-link">Transparência</a>
+                        </div>
+                    </div>
+                    <!-- Mobile Atuação Accordion -->
+                    <div class="mobile-submenu-container relative">
+                        <button id="mobile-atuacao-btn" class="mobile-nav-item w-full flex items-center justify-between group">
+                            Atuação
+                            <svg class="w-5 h-5 transition-transform duration-300 pointer-events-none" id="mobile-atuacao-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobile-atuacao-submenu" class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
+                            <a href="polos.html" class="mobile-sub-link">Eixos de Atuação</a>
+                            <a href="polos.html#cidadania" class="mobile-sub-link">Polo Cidadania</a>
+                            <a href="polos.html#inclusao" class="mobile-sub-link">Polo de Inclusão Produtiva</a>
+                            <a href="polos.html#educacao" class="mobile-sub-link">Polo de Educação</a>
+                            <a href="polos.html#esporte" class="mobile-sub-link">Polo de Esporte</a>
+                            <a href="polos.html#cultura" class="mobile-sub-link">Polo de Cultura</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="mt-10 pt-10 border-t border-gray-100">
+                    <a href="impacto.html#doacoes" class="w-full block bg-primary-600 text-white text-center font-bold py-4 rounded-2xl shadow-lg shadow-primary-600/20">
+                        Quero Contribuir
+                    </a>
+                </div>
+            </div>
+            <div class="p-8 bg-gray-50">
+                <p class="text-sm text-gray-500 mb-2 font-medium">Siga-nos</p>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com/oaprisco.itaguai" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary-600 shadow-sm hover:bg-primary-600 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="topo" class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden bg-primary-900">
+        <div class="hero-bg" style="background-image: url('../assets/quemsomoshero.jpg');" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10 pt-20">
+            <span class="inline-block py-2 px-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-secondary-400 font-bold tracking-widest uppercase text-sm mb-8 reveal-on-load">
+                Nossa História
+            </span>
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8 reveal-on-load tracking-tight">
+                Estrutura para <span class="text-secondary-400">transformar vidas.</span>
+            </h1>
+            <p class="font-sans text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 reveal-on-load leading-relaxed">
+                Mais do que caridade, entregamos desenvolvimento integral com resultados auditáveis para Itaguaí e região.
+            </p>
+            <div class="reveal-on-load flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="impacto.html" class="w-full sm:w-auto bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-bold text-lg py-4 px-8 rounded-full transition duration-300 shadow-xl shadow-secondary-500/30">
+                    Conheça nosso Impacto
+                </a>
+            </div>
+        </div>
+
+        <!-- Animated scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer opacity-50 hover:opacity-100 transition-opacity" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path>
+            </svg>
+        </div>
+        <div class="hero-bottom-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- História da Associação -->
+    <section class="py-24 bg-white relative overflow-hidden section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="space-y-8 reveal-on-scroll">
+                    <div>
+                        <h2 class="font-display text-4xl md:text-5xl font-black text-primary-700">A Associação</h2>
+                        <div class="w-20 h-2 bg-secondary-500 mt-4 rounded-full"></div>
+                    </div>
+                    <div class="text-lg text-gray-700 leading-relaxed space-y-6">
+                        <p>
+                            O Aprisco nasceu em 2014 de um café da manhã numa praça pública em Itaguaí. Fundado por Washington Tadeu da Silva — ex-dependente químico, formado em missões, especialista em transformação comunitária — a associação partiu do zero para se tornar uma das organizações sociais mais auditadas e reconhecidas do município.
+                        </p>
+                        <p>
+                            Hoje operamos em 3 comunidades (Morro do Sase, Morro do Carvão e Comunidade Weda) e expandimos nossa atuação para Mangaratiba. Somos parceiros homologados da Rede Gerando Falcões e referência em gestão de impacto mensurável no Estado do Rio de Janeiro.
+                        </p>
+                        <div class="bg-primary-50 p-6 rounded-2xl border border-primary-100">
+                            <p class="font-bold text-primary-900 italic">
+                                "A palavra aprisco significa abrigo. E é exatamente isso que entregamos: não caridade, mas estrutura. Não ajuda emergencial, mas desenvolvimento integral com resultados auditáveis."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-on-scroll">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+                        <div class="absolute inset-0 bg-primary-900/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="../assets/associacao.jpg" alt="A Associação O Aprisco" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- História do Fundador -->
+    <section class="py-24 bg-gray-50 relative overflow-hidden section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Reverse layout on desktop -->
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1 reveal-on-scroll">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+                        <div class="absolute inset-0 bg-primary-900/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="../assets/fundador.jpg" alt="Washington Tadeu da Silva" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 space-y-8 reveal-on-scroll">
+                    <div>
+                        <h2 class="font-display text-4xl md:text-5xl font-black text-primary-700">O Fundador</h2>
+                        <div class="w-20 h-2 bg-secondary-500 mt-4 rounded-full"></div>
+                    </div>
+                    <div class="text-lg text-gray-700 leading-relaxed space-y-6">
+                        <p>
+                            Washington Tadeu da Silva, 45 anos, cresceu em Itaguaí sabendo o que é escassez. Aos 13 anos entrou no ciclo da dependência química. Aos 22, saiu. Formou-se no ensino superior em 2010, especializou-se em missões sociais e passou anos dentro de escolas, penitenciárias e hospitais entendendo como o sistema falha — e onde pode acertar.
+                        </p>
+                        <p>
+                            Entre 2005 e 2014, coordenou a implantação de 19 bandas musicais na rede municipal de ensino de Itaguaí, atendendo mais de 3.500 alunos. Esse trabalho virou O Aprisco: uma organização que usa a mesma lógica de disciplina, talento e método que formou músicos para transformar a realidade de comunidades inteiras.
+                        </p>
+                        <p class="font-semibold text-primary-900">
+                            De dependente químico anônimo a empreendedor social reconhecido pela Assembleia Legislativa do Estado do Rio de Janeiro — Washington é a prova viva do que O Aprisco ensina: que o potencial existe, e precisa de estrutura para emergir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missão, Visão e Valores -->
+    <section class="py-24 bg-white relative overflow-hidden section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="font-display text-4xl md:text-5xl font-black text-primary-700">Nossa Missão</h2>
+                <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full mx-auto"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                <div class="space-y-10 reveal-on-scroll">
+                    <!-- Missão -->
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 class="text-2xl font-bold text-primary-700 mb-4 flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-full bg-secondary-100 text-secondary-500 flex items-center justify-center"><i class="fas fa-bullseye"></i></span>
+                            Missão
+                        </h3>
+                        <p class="text-gray-700 text-lg leading-relaxed">
+                            Transformar vidas por meio da cultura, educação, esporte e inclusão produtiva — entregando resultados mensuráveis para crianças, jovens e adultos em situação de vulnerabilidade em Itaguaí e região.
+                        </p>
+                    </div>
+
+                    <!-- Visão -->
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 class="text-2xl font-bold text-primary-700 mb-4 flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-full bg-secondary-100 text-secondary-500 flex items-center justify-center"><i class="fas fa-eye"></i></span>
+                            Visão
+                        </h3>
+                        <p class="text-gray-700 text-lg leading-relaxed">
+                            Ser a organização de referência em desenvolvimento humano e social no município de Itaguaí, reconhecida por parceiros corporativos e doadores por sua transparência, governança e impacto comprovado.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-8 reveal-on-scroll">
+                    <!-- Image -->
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl mb-10 h-64 sm:h-80">
+                        <img src="../assets/missao.jpg" alt="Nossa Missão e Valores" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Valores -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-primary-700 mb-6 flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-full bg-secondary-100 text-secondary-500 flex items-center justify-center"><i class="fas fa-gem"></i></span>
+                            Valores
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4 text-gray-700 text-lg">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-1"><i class="fas fa-check text-xs"></i></span>
+                                <span><strong class="text-primary-900">Integridade e Transparência</strong> — prestamos contas de cada centavo investido</span>
+                            </li>
+                            <li class="flex items-start gap-4 text-gray-700 text-lg">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-1"><i class="fas fa-check text-xs"></i></span>
+                                <span><strong class="text-primary-900">Empoderamento</strong> — desenvolvemos protagonistas, não dependentes</span>
+                            </li>
+                            <li class="flex items-start gap-4 text-gray-700 text-lg">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-1"><i class="fas fa-check text-xs"></i></span>
+                                <span><strong class="text-primary-900">Excelência com método</strong> — impacto é mensurável ou não é impacto</span>
+                            </li>
+                            <li class="flex items-start gap-4 text-gray-700 text-lg">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-1"><i class="fas fa-check text-xs"></i></span>
+                                <span><strong class="text-primary-900">Parceria e Colaboração</strong> — acreditamos que nenhuma transformação acontece sozinha</span>
+                            </li>
+                            <li class="flex items-start gap-4 text-gray-700 text-lg">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mt-1"><i class="fas fa-check text-xs"></i></span>
+                                <span><strong class="text-primary-900">Compromisso com Resultados</strong> — cada programa tem indicadores, metas e avaliação</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Território e Público-Alvo -->
+    <section class="py-24 bg-primary-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="font-display text-4xl md:text-5xl font-black text-white">Território e Público-Alvo</h2>
+                <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full mx-auto"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 text-white/90 text-lg reveal-on-scroll">
+                    <p class="leading-relaxed">
+                        Atuação presente nos bairros <strong class="text-white">Morro do Sase, Morro do Carvão e Comunidade Weda</strong>, situados no município de <strong class="text-white">Itaguaí/RJ</strong>; e também no município de <strong class="text-white">Mangaratiba</strong>, no bairro Praia do Saco.
+                    </p>
+                    
+                    <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
+                        <h3 class="text-2xl font-bold text-secondary-400 mb-6">Público Alvo</h3>
+                        <p class="mb-6 font-medium">Crianças, jovens e adultos em situação de vulnerabilidade. Sendo:</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-secondary-500"></span>
+                                Crianças: de 07 anos a 14 anos
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-secondary-500"></span>
+                                Jovens: de 14 anos a 29 anos
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-secondary-500"></span>
+                                Adultos: todas as idades
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-secondary-500"></span>
+                                Dependentes químicos
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reveal-on-scroll h-full">
+                    <div class="map-container relative">
+                        <div id="map"></div>
+                    </div>
+                    <p class="text-center text-sm text-white/60 mt-4 italic">* Clique nos marcadores para ver a localização detalhada no Google Maps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-secondary-400">O Aprisco</h3>
+                <p class="text-gray-300 mb-6">Associação de Desenvolvimento Humano e Social</p>
+                <div class="flex justify-center md:justify-start space-x-6 text-2xl">
+                    <a href="https://instagram.com/oaprisco.itaguai" class="hover:text-secondary-400 transition">@oaprisco.itaguai</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4 text-secondary-400">Contato</h4>
+                <p class="mb-2">Rua Xavantes, Lt28, Qd75<br>Vila Ibirapitanga, Itaguaí/RJ</p>
+                <p class="mb-2">CNPJ: 45.217.322/0001-25</p>
+                <p class="mb-4">📧 <a href="mailto:adm.oaprisco@outlook.com.br" class="hover:text-secondary-400 transition">adm.oaprisco@outlook.com.br</a></p>
+                <p>📞 (21) 98111-6424</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 O Aprisco. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const mapElement = document.getElementById('map');
+
+        // ================= MAPA =================
+        if (mapElement) {
+
+            // garante altura
+            mapElement.style.height = "400px";
+
+            const coordItaguai = [-22.858017, -43.773441];
+            const coordMangaratiba = [-22.94698, -44.04393];
+
+            const map = L.map('map', {
+                zoomControl: false,
+                dragging: true,
+                scrollWheelZoom: false,
+                doubleClickZoom: false,
+                touchZoom: false
+            });
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            const marker1 = L.marker(coordItaguai)
+                .addTo(map)
+                .bindPopup('R. Xavantes, 28 - Itaguaí/RJ');
+                
+            marker1.on('click', function() {
+                window.open('https://www.google.com/maps?q=R.+Xavantes,+28,+Itaguaí', '_blank');
+            });
+
+            const marker2 = L.marker(coordMangaratiba)
+                .addTo(map)
+                .bindPopup('Praia do Saco - Mangaratiba/RJ');
+                
+            marker2.on('click', function() {
+                window.open('https://www.google.com/maps?q=Praia+do+Saco,+Mangaratiba', '_blank');
+            });
+
+            const group = L.featureGroup([marker1, marker2]);
+
+            // ajuste após render
+            setTimeout(() => {
+                map.fitBounds(group.getBounds(), {
+                    padding: [60, 60]
+                });
+                map.invalidateSize();
+            }, 100);
+        }
+
+        // ================= GSAP =================
+        if (window.gsap) {
+
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.config({ force3D: true });
+
+            gsap.from('.reveal-on-load', {
+                y: 40,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'expo.out',
+                stagger: 0.15
+            });
+
+            gsap.utils.toArray('.reveal-on-scroll').forEach(function (el) {
+                gsap.from(el, {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+
+            gsap.to('.hero-bg', {
+                yPercent: 15,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.hero-section',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.8
+                }
+            });
+        }
+
+    });
+</script>
+</body>
+
+</html>
+
