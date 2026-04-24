@@ -294,8 +294,9 @@
                 <div class="w-24 h-2 bg-secondary-500 mt-4 rounded-full mx-auto"></div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-                <div class="space-y-10 reveal-on-scroll">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
+                <!-- Coluna Esquerda: Textos -->
+                <div class="space-y-10 reveal-on-scroll flex flex-col">
                     <!-- Missão -->
                     <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition-shadow">
                         <h3 class="text-2xl font-bold text-primary-700 mb-4 flex items-center gap-3">
@@ -317,16 +318,9 @@
                             Ser a organização de referência em desenvolvimento humano e social no município de Itaguaí, reconhecida por parceiros corporativos e doadores por sua transparência, governança e impacto comprovado.
                         </p>
                     </div>
-                </div>
-
-                <div class="space-y-8 reveal-on-scroll">
-                    <!-- Image -->
-                    <div class="relative rounded-3xl overflow-hidden shadow-xl mb-10 h-64 sm:h-80">
-                        <img src="../assets/missao.jpg" alt="Nossa Missão e Valores" class="w-full h-full object-cover">
-                    </div>
 
                     <!-- Valores -->
-                    <div>
+                    <div class="pt-2">
                         <h3 class="text-2xl font-bold text-primary-700 mb-6 flex items-center gap-3">
                             <span class="w-10 h-10 rounded-full bg-secondary-100 text-secondary-500 flex items-center justify-center"><i class="fas fa-gem"></i></span>
                             Valores
@@ -353,6 +347,13 @@
                                 <span><strong class="text-primary-900">Compromisso com Resultados</strong> — cada programa tem indicadores, metas e avaliação</span>
                             </li>
                         </ul>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Imagem -->
+                <div class="reveal-on-scroll h-full">
+                    <div class="rounded-3xl overflow-hidden shadow-xl h-full w-full min-h-[300px]">
+                        <img src="../assets/missao.jpg" alt="Nossa Missão e Valores" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -414,7 +415,7 @@
                 <h3 class="text-2xl font-bold mb-4 text-secondary-400">O Aprisco</h3>
                 <p class="text-gray-300 mb-6">Associação de Desenvolvimento Humano e Social</p>
                 <div class="flex justify-center md:justify-start space-x-6 text-2xl">
-                    <a href="https://instagram.com/oaprisco.itaguai" class="hover:text-secondary-400 transition">@oaprisco.itaguai</a>
+                    <a href="https://instagram.com/oaprisco.itaguai" target="_blank" class="hover:text-secondary-400 transition">@oaprisco.itaguai</a>
                 </div>
             </div>
             <div>
