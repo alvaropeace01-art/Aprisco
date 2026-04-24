@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateNavbarOnScroll();
 
     // Active link highlighting
-    const currentPath = window.location.pathname.split('/').pop() || 'home.html';
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     
     document.querySelectorAll('.nav-item, .mobile-nav-item, .dropdown-item, .mobile-sub-link').forEach(link => {
         const href = link.getAttribute('href');
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const normalizedHref = href.replace(/^\.\//, '').replace(/^\//, '');
         const normalizedCurrent = currentPath.replace(/^\//, '');
 
-        if (normalizedHref === normalizedCurrent || (normalizedCurrent === 'home.html' && normalizedHref === '')) {
+        if (normalizedHref === normalizedCurrent || (normalizedCurrent === 'index.html' && normalizedHref === '')) {
             link.classList.add('active');
         } else {
             // Caso especial para mantar o pai 'Atuação' ativo via texto se for um link (mobile)
