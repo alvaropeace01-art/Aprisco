@@ -43,7 +43,7 @@
     <!-- Navbar -->
     <nav id="navbar" class="navbar fixed w-full z-50 transition-all duration-500">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-            <div class="flex justify-between items-center h-20 md:h-24 transition-all duration-500"
+            <div class="flex justify-between items-center h-16 md:h-20 transition-all duration-500"
                 id="navbar-container">
                 <div class="flex items-center">
                     <a href="../index.html" class="logo-link group" aria-label="O Aprisco - Home">
@@ -56,70 +56,14 @@
                 <div class="hidden lg:flex items-center space-x-1 nav-links">
                     <a href="../index.html" class="nav-item">Home</a>
                     <a href="quemsomos.html" class="nav-item">Quem Somos</a>
-                    <div class="relative group">
-                        <button class="nav-item flex items-center gap-1 active" aria-expanded="false">
-                            Impacto
-                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div
-                            class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
-                                <a href="#topo"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium dropdown-item">Visão
-                                    Geral</a>
-                                <a href="#relatorio"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Relatório
-                                    de Impacto</a>
-                                <a href="#historias"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Histórias</a>
-                                <a href="#transparencia"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Transparência</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <button class="nav-item flex items-center gap-1">
-                            Atuação
-                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div
-                            class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2">
-                                <a href="polos.html"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium dropdown-item">Eixos
-                                    de Atuação</a>
-                                <a href="polos.html#cidadania"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
-                                    Cidadania</a>
-                                <a href="polos.html#inclusao"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
-                                    de Inclusão Produtiva</a>
-                                <a href="polos.html#educacao"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
-                                    de Educação</a>
-                                <a href="polos.html#esporte"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
-                                    de Esporte</a>
-                                <a href="polos.html#cultura"
-                                    class="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition font-medium">Polo
-                                    de Cultura</a>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="impacto.html" class="nav-item active">Impacto</a>
+                    <a href="polos.html" class="nav-item">Atuação</a>
                 </div>
 
                 <!-- Action Button Desktop -->
                 <div class="hidden lg:block">
                     <a href="#doacoes"
-                        class="bg-secondary-500 hover:bg-secondary-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg shadow-secondary-500/20 hover:shadow-secondary-500/40 transform hover:-translate-y-1">
+                        class="cta-btn">
                         Doar Agora
                     </a>
                 </div>
@@ -162,50 +106,12 @@
                 <nav class="flex flex-col space-y-4">
                     <a href="../index.html" class="mobile-nav-item">Home</a>
                     <a href="quemsomos.html" class="mobile-nav-item">Quem Somos</a>
-                    <!-- Mobile Impacto Accordion -->
-                    <div class="mobile-submenu-container relative">
-                        <button id="mobile-impacto-btn"
-                            class="mobile-nav-item w-full flex items-center justify-between group active">
-                            Impacto
-                            <svg class="w-5 h-5 transition-transform duration-300 pointer-events-none"
-                                id="mobile-impacto-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div id="mobile-impacto-submenu"
-                            class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
-                            <a href="#topo" class="mobile-sub-link">Visão Geral</a>
-                            <a href="#relatorio" class="mobile-sub-link">Relatório de Impacto</a>
-                            <a href="#historias" class="mobile-sub-link">Histórias</a>
-                            <a href="#transparencia" class="mobile-sub-link">Transparência</a>
-                        </div>
-                    </div>
-                    <!-- Mobile Atuação Accordion -->
-                    <div class="mobile-submenu-container relative">
-                        <button id="mobile-atuacao-btn"
-                            class="mobile-nav-item w-full flex items-center justify-between group">
-                            Atuação
-                            <svg class="w-5 h-5 transition-transform duration-300 pointer-events-none"
-                                id="mobile-atuacao-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div id="mobile-atuacao-submenu"
-                            class="mobile-submenu overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-gray-50 rounded-2xl mx-2">
-                            <a href="polos.html" class="mobile-sub-link">Eixos de Atuação</a>
-                            <a href="polos.html#cidadania" class="mobile-sub-link">Polo Cidadania</a>
-                            <a href="polos.html#inclusao" class="mobile-sub-link">Polo de Inclusão Produtiva</a>
-                            <a href="polos.html#educacao" class="mobile-sub-link">Polo de Educação</a>
-                            <a href="polos.html#esporte" class="mobile-sub-link">Polo de Esporte</a>
-                            <a href="polos.html#cultura" class="mobile-sub-link">Polo de Cultura</a>
-                        </div>
-                    </div>
+                    <a href="impacto.html" class="mobile-nav-item active">Impacto</a>
+                    <a href="polos.html" class="mobile-nav-item">Atuação</a>
                 </nav>
                 <div class="mt-10 pt-10 border-t border-gray-100">
                     <a href="#doacoes"
-                        class="w-full block bg-primary-600 text-white text-center font-bold py-4 rounded-2xl shadow-lg shadow-primary-600/20">
+                        class="w-full block bg-secondary-500 text-white text-center font-bold py-4 rounded-2xl cta-btn">
                         Quero Contribuir
                     </a>
                 </div>
@@ -235,11 +141,11 @@
             </p>
             <div class="reveal-on-load flex flex-col sm:flex-row items-center justify-center gap-5">
                 <a href="#doacoes"
-                    class="w-full sm:w-auto bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-bold text-lg py-4 px-8 rounded-full transition duration-300 shadow-xl shadow-secondary-500/30">
+                    class="cta-btn">
                     Investir neste impacto
                 </a>
                 <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank"
-                    class="w-full sm:w-auto bg-transparent border-2 border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-primary-900 font-bold text-lg py-4 px-8 rounded-full transition duration-300">
+                    class="cta-btn">
                     Entrar em contato
                 </a>
             </div>
@@ -273,7 +179,7 @@
                         <h3 class="text-primary-700 font-bold text-2xl mb-2">Música</h3>
                         <p class="text-gray-600 mb-6 flex-grow">Patrocine o kit de música de um jovem.</p>
                         <div class="text-4xl font-black text-secondary-500 mb-6">R$ 100<span class="text-lg text-gray-500 font-normal">,00</span></div>
-                        <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank" class="w-full text-center bg-primary-600 hover:bg-primary-500 text-white font-bold py-3 px-6 rounded-xl transition">Quero Apoiar</a>
+                        <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank" class="w-full text-center cta-btn">Quero Apoiar</a>
                     </div>
                 </div>
                 <!-- Card 2 -->
@@ -284,7 +190,7 @@
                         <h3 class="text-primary-700 font-bold text-2xl mb-2">Educação</h3>
                         <p class="text-gray-600 mb-6 flex-grow">Patrocine o material escolar mensal de uma criança.</p>
                         <div class="text-4xl font-black text-secondary-500 mb-6">R$ 80<span class="text-lg text-gray-500 font-normal">,00</span></div>
-                        <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank" class="w-full text-center bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-bold py-3 px-6 rounded-xl transition">Quero Apoiar</a>
+                        <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank" class="w-full text-center cta-btn">Quero Apoiar</a>
                     </div>
                 </div>
                 <!-- Card 3 -->
@@ -294,7 +200,7 @@
                         <h3 class="text-primary-700 font-bold text-2xl mb-2">Esporte</h3>
                         <p class="text-gray-600 mb-6 flex-grow">Patrocine uma aula de esportes.</p>
                         <div class="text-4xl font-black text-secondary-500 mb-6">R$ 50<span class="text-lg text-gray-500 font-normal">,00</span></div>
-                        <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank" class="w-full text-center bg-primary-600 hover:bg-primary-500 text-white font-bold py-3 px-6 rounded-xl transition">Quero Apoiar</a>
+                        <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+como+investir+no+impacto+do+Aprisco." target="_blank" class="w-full text-center cta-btn">Quero Apoiar</a>
                     </div>
                 </div>
             </div>
@@ -321,7 +227,7 @@
             </div>
 
             <div class="reveal-on-scroll">
-                <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+quero+oferecer+minha+expertise+como+volunt%C3%A1rio+no+Aprisco." target="_blank" class="inline-flex items-center justify-center bg-secondary-500 hover:bg-secondary-400 text-primary-900 font-bold py-4 px-10 rounded-full transition-shadow shadow-xl hover:shadow-2xl text-lg">
+                <a href="https://wa.me/5521981116424?text=Ol%C3%A1%2C+quero+oferecer+minha+expertise+como+volunt%C3%A1rio+no+Aprisco." target="_blank" class="cta-btn">
                     Quero Oferecer Minha Expertise
                 </a>
             </div>
