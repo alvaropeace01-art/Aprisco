@@ -248,7 +248,7 @@ h4,
 }
 
 .hero-bg {
-    background-image: url("../assets/novahero2.png");
+    background-image: url("../assets/novahero2.jpg");
     background-size: cover;
     background-position: center center;
     transform: scale(1.01);
@@ -282,7 +282,7 @@ h4,
 }
 
 .hero-title {
-    font-size: clamp(2.4rem, 7vw, 5.2rem);
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
     line-height: 1.05;
     font-weight: 900;
     letter-spacing: -0.02em;
@@ -531,7 +531,7 @@ h4,
     }
 
     .hero-title {
-        font-size: clamp(2.9rem, 4.7vw, 5.35rem);
+        font-size: clamp(2.6rem, 4.2vw, 4.8rem);
     }
 
     .hero-subtitle {
@@ -793,4 +793,4 @@ h4,
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 }
-
+
