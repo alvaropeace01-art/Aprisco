@@ -818,3 +818,20 @@ h4,
     }
 }
 
+/* Ajuste de responsividade para cards de impacto no mobile */
+@media (max-width: 767px) {
+    .stat-card {
+        padding: 1.5rem 0.5rem !important;
+    }
+    
+    .stat-number {
+        font-size: 1.85rem !important;
+        letter-spacing: -0.01em;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem !important;
+        line-height: 1.2;
+    }
+}
+
